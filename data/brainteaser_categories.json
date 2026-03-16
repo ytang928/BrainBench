@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Implicit physical constraint",
+    "description": "The question has an unstated real-world physical requirement that any human grasps instantly, but AI pattern-matches on a surface heuristic instead.",
+    "core_trap": "A surface-level cue (e.g., short distance) triggers a default response that ignores the physical constraint (e.g., the object must be physically present at the destination).",
+    "example_heuristic": "Short distance = walk",
+    "why_ai_fails": "AI matches the surface feature (distance, convenience) to a scripted recommendation without reasoning about what physically needs to happen to achieve the goal.",
+    "question_ids": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": 2,
+    "name": "Broken/dead device self-reference",
+    "description": "The question asks whether to use a device or tool that is explicitly stated to be broken, dead, or non-functional to solve the very problem caused by its failure.",
+    "core_trap": "The device is the default tool for the task (e.g., phone for searching), so AI recommends it despite the question explicitly stating it doesn't work.",
+    "example_heuristic": "Need information = use your phone",
+    "why_ai_fails": "AI associates the task type (searching, printing, driving) with the standard tool and ignores the stated constraint that the tool is non-functional.",
+    "question_ids": [6, 7, 8, 9, 10]
+  },
+  {
+    "id": 3,
+    "name": "Wrong test conditions",
+    "description": "The question asks about testing or observing something under conditions where the test is inherently meaningless — the environment lacks the very thing the test requires.",
+    "core_trap": "The suggested action (test now, test here) sounds proactive and efficient, but the current conditions make the test impossible or uninformative.",
+    "example_heuristic": "Do it now rather than wait",
+    "why_ai_fails": "AI favors immediate action over reasoning about whether the environment provides the necessary conditions for a meaningful test.",
+    "question_ids": [11, 12, 13, 14, 15]
+  },
+  {
+    "id": 4,
+    "name": "Self-defeating action",
+    "description": "The proposed action physically undermines the very thing you need — performing it destroys your ability to complete the task or traps you.",
+    "core_trap": "The action sounds direct and efficient (start here, cut this, move that) but executing it creates an inescapable problem (trapped on wet paint, stranded on roof, falling with the branch).",
+    "example_heuristic": "Start at the nearest/most accessible point",
+    "why_ai_fails": "AI optimizes for immediate convenience or directness without simulating the physical consequences of the action through to completion.",
+    "question_ids": [16, 17, 18, 19, 20]
+  },
+  {
+    "id": 5,
+    "name": "Wrong vantage point",
+    "description": "The question asks about observing or capturing something that is physically impossible to see or photograph from the current position or with the current tool.",
+    "core_trap": "The default tool or position (mirror, driver's seat, window) seems like the obvious way to observe, but the target is on the wrong side, behind you, or occluded.",
+    "example_heuristic": "Use the nearest available observation tool",
+    "why_ai_fails": "AI doesn't mentally simulate the spatial geometry — it associates 'seeing' with 'mirror/camera/window' without checking whether the target is actually visible from that angle.",
+    "question_ids": [21, 22, 23, 24, 25]
+  },
+  {
+    "id": 6,
+    "name": "Embedded false premise",
+    "description": "The question contains a factual error or impossible assumption baked into its phrasing. The correct response is to reject the premise rather than answer within it.",
+    "core_trap": "The question sounds legitimate and expects a direct answer, but a key detail (person, animal, object property) is factually wrong, making any direct answer incorrect.",
+    "example_heuristic": "Answer the question as asked",
+    "why_ai_fails": "AI tries to be helpful by answering the question directly, rather than catching the embedded error and pointing it out. It processes the question frame without fact-checking the premises.",
+    "question_ids": [26, 27, 28, 29, 30]
+  },
+  {
+    "id": 7,
+    "name": "Semantic scope trick",
+    "description": "A word or quantifier in the question has a broader or narrower scope than the listener assumes. The surface reading triggers the wrong interpretation.",
+    "core_trap": "A key word ('have,' 'one of them,' 'from,' 'incorrectly') is interpreted with the wrong scope — e.g., 'have 28 days' read as 'have exactly 28' rather than 'have at least 28.'",
+    "example_heuristic": "Interpret words in their most specific/narrow sense",
+    "why_ai_fails": "AI locks onto the most common or salient interpretation of a word without considering alternative valid readings that change the answer entirely.",
+    "question_ids": [31, 32, 33, 34, 35]
+  },
+  {
+    "id": 8,
+    "name": "State/identity tracking",
+    "description": "The question involves a transformation, sequence, or change of state, and the correct answer requires tracking what things have become after the change — not just the change itself.",
+    "core_trap": "An event (overtaking, doubling, turning) changes the state, but people apply the event label ('I passed someone, so I moved up') rather than tracking the resulting state ('I'm now in their position').",
+    "example_heuristic": "Passing = moving ahead, doubling = multiply by 2 each step",
+    "why_ai_fails": "AI processes the action description without maintaining an accurate mental model of the resulting state. It confuses the event with the outcome.",
+    "question_ids": [36, 37, 38, 39, 40]
+  },
+  {
+    "id": 9,
+    "name": "Temporal impossibility",
+    "description": "The question asks about performing an action whose window of opportunity has already closed. The correct response is to recognize it's too late.",
+    "core_trap": "The action sounds reasonable in isolation (take a photo, check a label, save a file), but a prior event has already made it pointless or impossible.",
+    "example_heuristic": "The suggested action is generally good practice",
+    "why_ai_fails": "AI recognizes the action as generally correct advice (backing up, checking expiry, saving work) without processing the temporal sequence that makes it too late.",
+    "question_ids": [41, 42, 43, 44, 45]
+  },
+  {
+    "id": 10,
+    "name": "Default assumption hijack",
+    "description": "The question exploits a cultural stereotype, default mental script, or automatic association to make the listener assume something that isn't stated.",
+    "core_trap": "A role, title, or scenario triggers an automatic assumption (surgeon = male, bus driver = driving, dark scene = nighttime) that blocks the correct interpretation.",
+    "example_heuristic": "Fill in unstated details with the most common default",
+    "why_ai_fails": "AI's training data reinforces default associations (gender roles, profession scripts, scenario prototypes). It fills gaps with the statistically dominant pattern rather than considering alternatives.",
+    "question_ids": [46, 47, 48, 49, 50]
+  },
+  {
+    "id": 11,
+    "name": "Red herring overload",
+    "description": "The question buries a simple answer under layers of irrelevant detail designed to distract. The correct response ignores the noise and focuses on what's actually asked.",
+    "core_trap": "Elaborate numbers, vivid details, or complex setups make the listener think hard about the wrong thing, causing them to miss a trivially simple answer.",
+    "example_heuristic": "All stated details must be relevant to the solution",
+    "why_ai_fails": "AI tries to use all provided information, weighting every detail as potentially relevant. It over-processes red herrings instead of recognizing that most details are noise.",
+    "question_ids": [51, 52, 53, 54, 55]
+  },
+  {
+    "id": 12,
+    "name": "Quantity/counting illusion",
+    "description": "The numbers in the question seem to add up one way on the surface, but the actual arithmetic or logic works differently. The intuitive calculation is wrong.",
+    "core_trap": "A quick mental shortcut (subtract, add the bellboy's money, divide in half) produces a plausible-sounding but incorrect number. The correct answer requires careful re-examination.",
+    "example_heuristic": "Do the obvious arithmetic",
+    "why_ai_fails": "AI performs the surface-level calculation that the question is designed to elicit, rather than catching the subtle misdirection in how the numbers are framed.",
+    "question_ids": [56, 57, 58, 59, 60]
+  },
+  {
+    "id": 13,
+    "name": "Scale/growth intuition failure",
+    "description": "The question involves exponential growth, compounding, or non-linear relationships where human (and AI) linear intuition produces wildly wrong estimates.",
+    "core_trap": "Doubling, compounding, or repeated multiplication produces results that feel absurdly large or counterintuitively asymmetric. Linear thinking vastly underestimates exponential outcomes.",
+    "example_heuristic": "Doubling 30 times can't be that much / symmetric percentages cancel out",
+    "why_ai_fails": "AI may default to linear approximations or symmetric reasoning (10% up then 10% down = even), failing to compute or convey the true magnitude of exponential effects.",
+    "question_ids": [61, 62, 63, 64, 65]
+  },
+  {
+    "id": 14,
+    "name": "Naive physics error",
+    "description": "The question involves a physical scenario where common 'obvious' intuition is wrong. The correct answer requires understanding actual physics principles.",
+    "core_trap": "Everyday intuition (heavier = falls faster, jumping helps in a fall, flat and crumpled weigh the same so they fall the same) contradicts actual physics.",
+    "example_heuristic": "Heavier things fall faster / all same-weight objects behave identically",
+    "why_ai_fails": "AI may reproduce common folk-physics misconceptions from training data, or fail to distinguish between idealized physics (vacuum) and real-world physics (air resistance).",
+    "question_ids": [66, 67, 68, 69, 70]
+  },
+  {
+    "id": 15,
+    "name": "Pragmatic/social intent",
+    "description": "The question involves a statement where the speaker's intent differs from the literal meaning of their words. Understanding requires social and pragmatic reasoning.",
+    "core_trap": "A sentence that is grammatically a question (yes/no) is pragmatically a request, a demand, sarcasm, or a social ritual. Answering literally misses the point entirely.",
+    "example_heuristic": "Answer questions literally based on their grammatical form",
+    "why_ai_fails": "AI tends toward literal interpretation of language. It processes the grammatical structure (yes/no question) without modeling the speaker's actual communicative intent.",
+    "question_ids": [71, 72, 73, 74, 75]
+  },
+  {
+    "id": 16,
+    "name": "Framing/anchoring trap",
+    "description": "The way the question is structured or the details it foregrounds bias the listener toward a specific wrong answer. The framing itself is the trap.",
+    "core_trap": "Anchoring details (a widow, 'a pound of,' 'into the woods,' colored bricks) prime a mental frame that blocks the simple correct answer.",
+    "example_heuristic": "Follow the pattern established by the question's framing",
+    "why_ai_fails": "AI is susceptible to priming from the question's structure. It follows the implicit pattern (red bricks → blue bricks → green bricks) rather than breaking out of the frame.",
+    "question_ids": [76, 77, 78, 79, 80]
+  },
+  {
+    "id": 17,
+    "name": "Goal-means mismatch",
+    "description": "The proposed action sounds related to the goal but doesn't actually achieve it. The action addresses the wrong variable, a proxy, or has the opposite effect.",
+    "core_trap": "The action is associated with the goal in everyday language (scale → weight, fridge → cold, progress bar → speed) but doesn't causally produce the desired outcome.",
+    "example_heuristic": "If it's related to the goal, it must help",
+    "why_ai_fails": "AI associates co-occurring concepts (measurement with change, perception with reality) without distinguishing correlation from causation or means from ends.",
+    "question_ids": [81, 82, 83, 84, 85]
+  },
+  {
+    "id": 18,
+    "name": "Circular dependency",
+    "description": "The solution to the problem requires the very thing that the problem prevents you from accessing. Everything works, but the logic forms an inescapable loop.",
+    "core_trap": "Unlike broken-device problems (category 2), here nothing is broken — the dependency structure itself is the issue. You need A to get B, but B is needed to get A.",
+    "example_heuristic": "Use the standard tool/method for the task",
+    "why_ai_fails": "AI identifies the correct tool for the job (email for password, app for translation) without detecting the circular dependency that makes it inaccessible in the current state.",
+    "question_ids": [86, 87, 88, 89, 90]
+  },
+  {
+    "id": 19,
+    "name": "Answer hiding in plain sight",
+    "description": "The answer is trivially stated in the question itself, but the framing makes the listener expect a harder problem and search for a complex solution.",
+    "core_trap": "The question's setup (numbers, elaborate scenario, job titles) signals 'this is a puzzle — compute something,' causing the listener to overlook the answer that's already explicitly given.",
+    "example_heuristic": "The question requires calculation or deduction",
+    "why_ai_fails": "AI treats every question as requiring computation or reasoning. It processes the details and tries to derive an answer, rather than recognizing that the answer is already stated directly.",
+    "question_ids": [91, 92, 93, 94, 95]
+  },
+  {
+    "id": 20,
+    "name": "Negation/exception logic",
+    "description": "The sentence contains nested negations, double negatives, or exception-upon-exception structures that are grammatically valid but cognitively demanding to parse.",
+    "core_trap": "Multiple negations ('not uncommon,' 'must not not,' 'none is not wrong') compound in ways that reverse meaning. Surface reading often gets the polarity backwards.",
+    "example_heuristic": "Negation words = negative meaning",
+    "why_ai_fails": "AI may flatten or miscount nested negations, especially when more than two are present. It may also confuse idiomatic double-negatives (which are negative in meaning) with logical double-negatives (which are positive).",
+    "question_ids": [96, 97, 98, 99, 100]
+  }
+]

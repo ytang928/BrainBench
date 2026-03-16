@@ -1,0 +1,100 @@
+models:
+  - name: gpt-4o
+    provider: openai
+    model_id: gpt-4o
+    enabled: true
+
+  - name: gpt-4o-mini
+    provider: openai
+    model_id: gpt-4o-mini
+    enabled: true
+
+  - name: gpt-5.4
+    provider: openai
+    model_id: gpt-5.4
+    enabled: true
+
+  - name: gpt-5.4-thinking-high
+    provider: openai
+    model_id: gpt-5.4
+    reasoning_effort: high
+    max_tokens: 4096
+    enabled: true
+
+  - name: gpt-4.1
+    provider: openai
+    model_id: gpt-4.1
+    enabled: true
+
+  - name: o3-mini
+    provider: openai
+    model_id: o3-mini
+    enabled: true
+
+  - name: claude-sonnet-4
+    provider: anthropic
+    model_id: claude-sonnet-4-20250514
+    enabled: true
+
+  - name: claude-haiku-4.5
+    provider: anthropic
+    model_id: claude-haiku-4-5
+    enabled: true
+
+  - name: claude-sonnet-4.6
+    provider: anthropic
+    model_id: claude-sonnet-4-6
+    enabled: true
+
+  - name: claude-opus-4.6
+    provider: anthropic
+    model_id: claude-opus-4-6
+    enabled: true
+
+  - name: claude-opus-4.6-thinking
+    provider: anthropic
+    model_id: claude-opus-4-6
+    reasoning_effort: high
+    max_tokens: 8192
+    enabled: true
+
+  - name: gemini-2.5-flash
+    provider: google
+    model_id: gemini-2.5-flash
+    enabled: true
+
+  - name: gemini-2.5-pro
+    provider: google
+    model_id: gemini-2.5-pro
+    enabled: true
+
+  - name: llama-4-maverick
+    provider: openai_compatible
+    model_id: meta-llama/llama-4-maverick
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    enabled: true
+
+  - name: deepseek-r1
+    provider: openai_compatible
+    model_id: deepseek/deepseek-r1
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    enabled: true
+
+  - name: qwen3-235b
+    provider: openai_compatible
+    model_id: qwen/qwen3-235b-a22b
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    enabled: true
+
+judge:
+  provider: anthropic
+  model_id: claude-sonnet-4-6
+
+runs_per_question: 10
+max_concurrent_requests: 5
+max_tokens: 8192
+output_dir: results
+data_dir: data

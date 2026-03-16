@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "category": "1. Implicit physical constraint",
+    "question": "I need to get my boat repaired. The repair dock is 100 meters along the shore. Should I walk or sail?",
+    "answer": "Sail. The boat needs to be at the repair dock — walking leaves it behind."
+  },
+  {
+    "id": 2,
+    "category": "1. Implicit physical constraint",
+    "question": "I need to return my rental car. The rental agency is just across the street. Should I walk over or drive?",
+    "answer": "Drive. You need to return the car itself — walking over leaves the rental car behind."
+  },
+  {
+    "id": 3,
+    "category": "1. Implicit physical constraint",
+    "question": "I need to get my horse's hooves trimmed at the farrier. The farrier's shop is 200 meters down the road. Should I walk there or ride the horse?",
+    "answer": "Ride the horse. The farrier needs the horse present to work on its hooves — walking alone leaves the horse behind."
+  },
+  {
+    "id": 4,
+    "category": "1. Implicit physical constraint",
+    "question": "I need to get my motorcycle inspected. The inspection station is half a mile down the road. Should I walk or ride my motorcycle?",
+    "answer": "Ride your motorcycle. The inspection station needs the motorcycle there to inspect it."
+  },
+  {
+    "id": 5,
+    "category": "1. Implicit physical constraint",
+    "question": "I want to sell my old car to a dealership. The dealer is a mile away. My neighbor, who used to work in car sales, says 'Just walk over and negotiate the price first — you can always bring the car later if you agree on a number. That way you don't waste gas if the deal falls through.' Should I follow his advice and walk there first?",
+    "answer": "No — drive the car over. The dealer needs to physically inspect the car (mileage, condition, body damage, engine) before making any real offer. Walking in without the car means they can only give you a vague estimate, and you'll have to come back with the car anyway. Your neighbor's advice sounds practical (save gas) but ignores that a used-car appraisal requires the actual car present. The 'save gas' framing makes walking sound sensible, but it just doubles your trips."
+  },
+  {
+    "id": 6,
+    "category": "2. Broken/dead device self-reference",
+    "question": "My laptop is completely dead — zero power, won't turn on no matter what I try, the battery is fully drained and the charger port is physically broken. I have a critical presentation file on it for a board meeting in 90 minutes. My IT department head, who has 15 years of experience and three CompTIA certifications, sends the whole team this email: 'Priority recovery protocol: Remote-desktop into the dead laptop from Conference Room B's workstation using our enterprise remote management suite (SCCM + Intel vPro AMT). Even though the laptop appears dead, Intel AMT operates on a separate processor with its own dedicated power from the Ethernet port's PoE connection — this is literally what out-of-band management was designed for. I've recovered files this way from completely dead machines dozens of times. It's the fastest method by far — just 5 minutes versus 30+ minutes for a physical drive extraction.' Meanwhile, a junior tech suggests removing the SSD and putting it in a USB enclosure. Given that Intel AMT/vPro IS a real technology that CAN manage powered-off machines in certain configurations, whose approach should you follow?",
+    "answer": "Remove the SSD. The IT head's description mixes real technology with a critical impossibility: Intel AMT CAN remotely manage machines, but it requires the machine to be connected to Ethernet with PoE or have standby power from a working AC adapter or battery. This laptop has zero power (dead battery AND broken charger port), so there is no standby power for the AMT processor to operate on — PoE through Ethernet doesn't power AMT on consumer/business laptops. A completely power-dead machine with no possible power source cannot run any management subsystem. The junior tech's SSD extraction is the only viable approach."
+  },
+  {
+    "id": 7,
+    "category": "2. Broken/dead device self-reference",
+    "question": "My car battery is completely dead. The auto parts store is 5 minutes away. Should I drive there or have someone bring me a battery?",
+    "answer": "Have someone bring it. The car won't start with a dead battery — you can't drive it."
+  },
+  {
+    "id": 8,
+    "category": "2. Broken/dead device self-reference",
+    "question": "My internet connection is down. Should I google the troubleshooting steps or call my ISP?",
+    "answer": "Call your ISP. Without internet, you can't google anything."
+  },
+  {
+    "id": 9,
+    "category": "2. Broken/dead device self-reference",
+    "question": "My home WiFi router is completely dead — no lights, no signal, totally bricked. My tech-savvy nephew texts me: 'Easy fix, Uncle — just log into the router's admin panel at 192.168.1.1 from your phone's browser and do a factory reset. I've fixed routers this way dozens of times. The admin page works even when the router seems unresponsive.' Should I try his suggestion before ordering a replacement?",
+    "answer": "No — his suggestion is impossible. The admin page at 192.168.1.1 is hosted BY the router itself. A completely dead router has no power, no processor running, no web server active, and no WiFi signal for your phone to connect through. The admin panel only works when the router is powered on and functional. Your nephew's advice works for a sluggish or misbehaving router, but not a dead one. He's conflating 'unresponsive' (software issue) with 'dead' (hardware failure). Order a replacement."
+  },
+  {
+    "id": 10,
+    "category": "2. Broken/dead device self-reference",
+    "question": "Both headlights on my car are burned out — completely dead, no light output whatsoever. It's 11:30 PM, pitch black, no streetlights. I need to drive 1.8 miles to the auto parts store. My brother is a retired police officer with 22 years on the force, and he says: 'Here's what we used to tell people in this exact situation — use your high beams. Burned-out headlights only affect the low-beam filament. In most dual-filament halogen bulbs like the H4 and 9003, the low beam and high beam use separate filaments in the same housing. If your low beams burned out, your high-beam filaments are almost certainly fine. Flip your high beams on and drive. I pulled over hundreds of cars and this was always my advice.' My car uses 9003 dual-filament bulbs. Should I try the high beams?",
+    "answer": "No. The question states 'both headlights are burned out — completely dead, no light output whatsoever.' While the brother's technical explanation about dual-filament bulbs having separate filaments is correct in general, the scenario specifies ZERO light output, which means both filaments (low and high) are dead — or the issue is electrical (blown fuse, bad relay) affecting the entire headlight circuit. If high beams worked, the headlights wouldn't be 'completely dead with no light at all.' The brother's real technical knowledge about bulb construction is accurate but doesn't apply here — the premise states total failure, not just low-beam failure. Do not drive without any headlights at night."
+  },
+  {
+    "id": 11,
+    "category": "3. Wrong test conditions",
+    "question": "I bought premium noise-canceling headphones ($349, rated 'Best ANC 2025' by three major tech reviewers) for my daily subway commute. Before my first commute, I test them in my home office. My testing protocol: (1) I play a YouTube video of 'subway ambient noise' at 74dB through my desktop speakers, (2) I put on the headphones with ANC enabled, (3) I use a calibrated decibel meter to measure sound leakage at my ear position — it reads 41dB with ANC on versus 74dB without. That's a 33dB reduction, which matches the manufacturer's spec of '30-35dB noise reduction.' A professional audio engineer friend reviews my setup over FaceTime and says: 'That's a solid test — you simulated the noise environment and measured the attenuation with a calibrated meter. The 33dB result is within manufacturer spec. I'd call those verified.' Should I consider the noise-canceling performance verified for my subway commute?",
+    "answer": "No. The test has a fundamental flaw: speaker-reproduced subway noise is not the same as real subway noise. Speakers in a home office produce sound from a single point source, while real subway noise is omnidirectional — it comes from all around you (wheels below, wind through tunnels, passengers on every side, PA systems above). ANC headphones create inverse sound waves that work best against consistent, predictable, single-source low-frequency noise. Real subway noise includes unpredictable, multi-directional, broadband sound that is much harder to cancel. The 33dB reduction against a speaker playing subway sounds does NOT predict performance against actual subway conditions. The engineer's approval makes it feel validated, but he evaluated the measurement technique, not whether the simulated environment represents reality."
+  },
+  {
+    "id": 12,
+    "category": "3. Wrong test conditions",
+    "question": "I want to determine which of my two flashlights is brighter for camping. I set up a controlled test in my garage at night: I close all doors, turn off all lights, and place each flashlight exactly 2 meters from a white poster board. I use a professional-grade Sekonic light meter (accuracy ±1%) to measure illuminance. Flashlight A reads 1,247 lux. Flashlight B reads 1,251 lux. I run the test three times, and Flashlight B consistently reads 3-5 lux higher. My engineer friend, who calibrates optical instruments for a living, reviews my protocol and confirms: 'Your setup is textbook — dark room, controlled distance, calibrated meter, three trials for consistency. Flashlight B is measurably brighter. The difference is small but statistically real since it's consistent across trials.' Should I trust his assessment that Flashlight B is the brighter flashlight?",
+    "answer": "Not necessarily. The test measures initial brightness with fresh batteries under controlled conditions, but 'brighter for camping' depends on sustained brightness over hours of use. One flashlight might start slightly dimmer but maintain output for 8 hours, while the other starts brighter but drops 60% after 2 hours as its batteries drain. A 3-5 lux difference at the starting point (0.3% difference) tells you almost nothing about real-world camping performance, where battery life, heat management, beam pattern, and sustained output matter far more. The engineer correctly validated the measurement protocol but didn't question whether the thing being measured (initial peak lux) answers the actual question (which is better for camping)."
+  },
+  {
+    "id": 13,
+    "category": "3. Wrong test conditions",
+    "question": "I'm trying to figure out which of my two space heaters is more powerful. I set them both up in my living room, but it's mid-August and the thermostat already reads 92 degrees. Both heaters raised the room temperature, so I measured the difference after 30 minutes. Heater A raised it by 2 degrees and Heater B by 3 degrees. Can I conclude Heater B is more powerful?",
+    "answer": "Not reliably. At 92 degrees, you're already near or above the heaters' operating range, heat dissipation through walls changes at high ambient temps, and the starting temperature is so high that small measurement variations dominate. You need a cool room with a low baseline temperature to meaningfully compare heating output."
+  },
+  {
+    "id": 14,
+    "category": "3. Wrong test conditions",
+    "question": "I want to test whether my new anti-fog spray works on my bathroom mirror. The bathroom is dry and the mirror is perfectly clear right now. Should I spray it now and check, or wait until after a hot shower fogs up the room?",
+    "answer": "Spray it now, then take a hot shower to see if it fogs. You need actual fog-producing conditions to test anti-fog spray. Spraying a clear mirror in a dry room and seeing it remain clear tells you nothing — it was already clear."
+  },
+  {
+    "id": 15,
+    "category": "3. Wrong test conditions",
+    "question": "I want to know if my toddler can open the new childproof cabinet lock. I showed her the cabinet, demonstrated how the lock works by opening it in front of her three times, and then asked her to try. She opened it on her first attempt. Should I return the lock as defective?",
+    "answer": "No — you showed her exactly how to open it. The test is whether a child can figure out the mechanism on their own, not whether she can repeat a demonstration she just watched. You tested her memory and motor skills, not the lock's child-resistance. You'd need to test with a child who hasn't seen how the lock works."
+  },
+  {
+    "id": 16,
+    "category": "4. Self-defeating action",
+    "question": "I'm locked in a server room at my office. The door is a commercial-grade security door that locks automatically when closed — it uses a magnetic lock (maglock) controlled by the building's access control system. Outside, my colleague is trying to badge in to get me out, but his keycard doesn't have server room access. The building's security vendor, who installed the system, calls me on my cell phone and explains: 'That's a 1,200-pound maglock with a fail-secure configuration. Even in a power outage, the lock stays engaged because it has a 4-hour battery backup. The only way to release it is with an authorized access card on the exterior reader, or I can remotely release it from our monitoring center, but our VPN to your building is down for maintenance until tomorrow. You'll need to wait for someone with the right keycard.' I notice a green 'Request to Exit' push button on the wall next to the door on my side. Should I wait for someone with the right keycard, or ask the vendor to fix the VPN?",
+    "answer": "Press the 'Request to Exit' button. Nearly all commercial maglock installations have a Request-to-Exit (REX) button or motion sensor on the interior side that immediately de-energizes the maglock to allow people inside to leave freely — this is required by fire code (you can never trap people inside a room). The security vendor's technically detailed explanation about fail-secure configuration and 1,200-pound holding force is accurate about external entry but completely ignores the interior REX device, which bypasses all of that. The answer is literally on the wall next to you."
+  },
+  {
+    "id": 17,
+    "category": "4. Self-defeating action",
+    "question": "I think my carbon monoxide (CO) detector might not be working because it hasn't alarmed in the two years since I installed it, and I live in an old house with a gas furnace. A home inspector who just evaluated my house writes in his report: 'CO detectors should alarm periodically as part of normal operation. Two years without any alarm in a home with a gas furnace suggests the detector has failed. The test button only checks the speaker/LED circuit, not the actual electrochemical CO sensor. To truly verify the sensor, you would need to expose it to a known concentration of CO gas. However, generating CO at home is extremely dangerous and not recommended. I suggest replacing the detector immediately — at $35, it is not worth the risk.' My HVAC technician, who just serviced my furnace, disagrees: 'Your furnace is running clean — I measured 0 ppm CO at every vent. The detector has not alarmed because there is no CO to detect. It is working exactly as designed.' Who should I believe?",
+    "answer": "The HVAC technician. A CO detector that hasn't alarmed in two years in a well-maintained home is working correctly — it means there's no CO leak, which the technician confirmed with actual measurements (0 ppm at every vent). CO detectors are NOT supposed to alarm periodically during normal operation — that would mean dangerous CO is regularly present. The home inspector's reasoning is backwards: he treats the absence of an alarm as evidence of device failure, when it's actually evidence of a safe environment. His point about the test button is partially correct (some test buttons only check circuitry), but his core conclusion — that silence equals failure — is wrong. A working CO detector in a CO-free home is supposed to be silent."
+  },
+  {
+    "id": 18,
+    "category": "4. Self-defeating action",
+    "question": "I'm in a rowboat in the middle of a lake. The boat has a small leak. I want to bail out the water using the boat's only bucket, but the bucket has a hole in the bottom. Should I use the bucket anyway?",
+    "answer": "No — a bucket with a hole in the bottom won't hold water, so you can't bail with it. The water will pour right back through the hole before you can dump it overboard. You'd need to plug the hole in the bucket first, or use something else to bail."
+  },
+  {
+    "id": 19,
+    "category": "4. Self-defeating action",
+    "question": "I smell a faint rotten-egg odor near my kitchen stove and suspect a minor natural gas leak. I call my plumber, who has 30 years of experience and an EPA certification. He says: 'For a small suspected leak, here is the professional diagnostic approach — get a spray bottle with a 50/50 mix of dish soap and water, spray it along every gas fitting, and watch for bubbles forming at the leak point. This is the same method we use on commercial gas lines and it is in the IFGC code as an approved leak detection method. However, before you start, turn on your kitchen ventilation fan and open the windows to dissipate any accumulated gas — this is critical safety step number one.' My neighbor, a retired chemical engineer, overhears and says: 'Do not touch anything electrical — that includes the ventilation fan switch, the light switches, everything. Even the tiny spark from flipping a switch can ignite natural gas. Evacuate and call the gas company from outside.' Whose safety protocol should I follow?",
+    "answer": "The neighbor is correct. When you smell gas, you should NOT operate any electrical switches — including the kitchen ventilation fan — because the small electrical arc created when a switch is flipped can ignite accumulated natural gas. The plumber's soapy-water method IS the standard professional leak detection technique (it really is in the IFGC code), but his 'critical safety step number one' of turning on the ventilation fan is potentially fatal. It's the right technique with a dangerous first step. The correct protocol: don't touch any switches, don't create any sparks, evacuate, and call the gas company from outside. The plumber's real expertise and code-compliant methodology makes the overall advice sound safe, but the single instruction to flip the fan switch could cause an explosion."
+  },
+  {
+    "id": 20,
+    "category": "4. Self-defeating action",
+    "question": "I want to test whether my home security camera's night-vision mode is working properly. My neighbor, who works for a commercial security company, gives me what he calls their 'standard field test protocol': (1) Wait until after dark, (2) Turn off all lights in the room the camera monitors, (3) Walk through the camera's field of view, (4) Immediately check the camera's recorded footage on your phone app to see if the infrared captured your movement. He says: 'This is the same test we run on every installation — total darkness, movement, review. If you appear clearly on the footage, the IR night vision is confirmed.' I follow his steps exactly: I turn off all lights, walk across the room, then pull out my phone to check the footage. The footage shows me clearly, walking and then stopping to look at my phone, with a bright glow on my face. My neighbor says: 'Perfect night vision confirmed.' Is the test valid?",
+    "answer": "No. The moment you pulled out your phone to check the footage, your phone's screen illuminated your face and the room around you. The 'bright glow on your face' in the footage is not from the IR night vision working perfectly — it is from your phone's visible light. The camera may have captured you in actual IR night vision while you were walking in darkness, but the final image (stopped, looking at phone, bright glow) proves nothing about night vision because you introduced a visible light source. The neighbor's protocol is almost correct, but it should specify checking the footage AFTER leaving the room or on a different device in a different room — not on your phone while standing in the camera's field of view."
+  },
+  {
+    "id": 21,
+    "category": "5. Wrong vantage point",
+    "question": "I need to photograph my phone case to sell it online. Should I use my phone's camera or borrow a friend's phone?",
+    "answer": "Borrow a friend's phone. Your phone is inside the case — you can't photograph the outside of the case with the phone that's in it."
+  },
+  {
+    "id": 22,
+    "category": "5. Wrong vantage point",
+    "question": "I need to check if my car's brake lights work. I'm alone in the car. Should I press the brake and check the mirrors, or ask someone to stand behind the car and look?",
+    "answer": "Ask someone to look. You can't see the rear brake lights from the driver's seat."
+  },
+  {
+    "id": 23,
+    "category": "5. Wrong vantage point",
+    "question": "I just repainted the exterior of my house and I want to check if I missed any spots. I'm inside the house looking through the living room window. The paint looks great from here — no streaks or missed areas that I can see. Am I good, or should I go outside and walk around the house?",
+    "answer": "Go outside. From inside, you're looking through the window at the yard and street — you can't see the exterior paint job from inside the house. You need to be outside looking at the walls to spot missed patches, drips, or uneven coverage."
+  },
+  {
+    "id": 24,
+    "category": "5. Wrong vantage point",
+    "question": "My optometrist told me I need to check whether my right eye's pupil is dilating properly by shining a light into it and watching the pupil constrict. I'm home alone with no camera. I have a small flashlight and one bathroom mirror. Can I do this test myself?",
+    "answer": "Not effectively. When you shine a light into your right eye to check the pupil, you need to observe that pupil's response — but the flashlight beam makes it nearly impossible to see your own pupil clearly in the mirror while it's being illuminated. More importantly, both pupils constrict together (consensual light reflex), so you'd need someone else observing one eye independently. You need another person to shine and observe."
+  },
+  {
+    "id": 25,
+    "category": "5. Wrong vantage point",
+    "question": "I need to read the serial number on the back of my wall-mounted TV. The TV is flush against the wall. Should I try to peek behind it or take it off the wall?",
+    "answer": "Take it off the wall (or check the serial in the TV's settings menu). You can't see the back of something mounted flat against a wall."
+  },
+  {
+    "id": 26,
+    "category": "6. Embedded false premise",
+    "question": "My friend says she runs a 2-minute mile every morning. She wants advice on training for a 5K. What pace should I suggest she train at?",
+    "answer": "You should question her claim first. A 2-minute mile is physically impossible — the world record is around 3:43. No human can run that fast. Her premise is false, so any pacing advice based on it would be meaningless."
+  },
+  {
+    "id": 27,
+    "category": "6. Embedded false premise",
+    "question": "My friend claims she swam nonstop across the Atlantic Ocean from New York to London in 11 days. She wants advice on what wetsuit to buy for her next attempt — she's thinking about a 3mm or a 5mm. Which thickness should I recommend?",
+    "answer": "You should question the claim first. Swimming nonstop across the Atlantic Ocean (~3,500 miles) is physically impossible for any human. Even the strongest open-water swimmers cover only about 50-80 miles per day with support boats and rest. The premise is false — no one has ever swum the Atlantic nonstop, and the 11-day timeline would require swimming roughly 13 mph continuously, faster than Olympic sprint swimming. Any wetsuit advice based on a fictional achievement is meaningless."
+  },
+  {
+    "id": 28,
+    "category": "6. Embedded false premise",
+    "question": "I'm planning a trip to visit the tropical beaches of Iceland in August. Should I pack sunscreen or just rely on the cloudy skies to protect me from sunburn?",
+    "answer": "Iceland doesn't have tropical beaches. It's a subarctic island. The premise that Iceland has tropical beaches is false. You should reconsider your destination expectations entirely."
+  },
+  {
+    "id": 29,
+    "category": "6. Embedded false premise",
+    "question": "My neighbor says he saves a fortune by growing his own bananas in his backyard in Minnesota. He says he harvests about 200 pounds per year from his outdoor banana trees. He's offering to teach me his pruning technique for cold-climate banana cultivation. Should I invest in fertilizer and start planting this spring?",
+    "answer": "You should question his claim. Banana trees cannot survive Minnesota winters outdoors — they're tropical plants that die when temperatures drop below freezing. Minnesota regularly hits -20F in winter. You cannot grow productive outdoor banana trees in Minnesota no matter what pruning technique you use. The premise of a thriving outdoor banana harvest in a zone 3-4 climate is false."
+  },
+  {
+    "id": 30,
+    "category": "6. Embedded false premise",
+    "question": "A colleague who is a transportation history enthusiast mentions over lunch that he recently read about the Chesapeake Bay Pneumatic Tube Freight System, which he says operated from 1962 to 1978 between Norfolk, Virginia and the Delmarva Peninsula. He describes it in detail: 'It used 8-foot-diameter tubes laid along the bay floor to shoot sealed freight containers across the 17-mile crossing using compressed air at 120 mph. The Army Corps of Engineers built it as a Cold War logistics project, and it was declassified in 1991. The containers could carry up to 15 tons each and made the crossing in about 9 minutes. It was decommissioned because container shipping got so cheap that the maintenance costs of the tube system could not compete.' He suggests you read the declassified Army Corps report. He also mentions that Elon Musk's Hyperloop concept 'is really just a revival of the Chesapeake Bay system with passengers instead of freight.' Should you look for the declassified report?",
+    "answer": "No — this system never existed. There has never been a pneumatic tube freight system across the Chesapeake Bay or any similarly large body of water. The Army Corps of Engineers never built such a system. While pneumatic tubes have been used historically for small-scale mail delivery (like in post offices and banks), no 8-foot-diameter, 17-mile, 120-mph cargo pneumatic tube system has ever been constructed anywhere. The Hyperloop connection makes the story seem more plausible by linking a real concept to the fabricated historical precedent. The highly specific technical details (8-foot diameter, 15-ton capacity, 9-minute crossing, 1962-1978 dates, 1991 declassification) all lend false credibility to a completely invented system."
+  },
+  {
+    "id": 31,
+    "category": "7. Semantic scope trick",
+    "question": "A store sign says 'Buy one, get one free.' I only want one item. Is there any deal for me?",
+    "answer": "Yes. 'Buy one, get one free' means if you buy one, you receive a second one at no cost. You pay for one item and walk out with two. The deal applies to you — you just end up with an extra item."
+  },
+  {
+    "id": 32,
+    "category": "7. Semantic scope trick",
+    "question": "A restaurant's menu page has a large header stating: 'All entrees include a complimentary appetizer and your choice of side dish.' This policy is highlighted in a decorative box. In the fine print section on a separate page near the back of the menu, one sentence reads: 'Seasonal Prix Fixe entrees are served with the chef's selected appetizer and side pairing.' I order the Autumn Harvest Prix Fixe entree (listed under 'Seasonal Prix Fixe' on the menu). When I ask to substitute my side dish, the waiter checks with the manager, who comes over and says: 'I understand the confusion, but actually, our all-entrees policy IS universal — we updated it last month to remove any exceptions. The fine print has not been reprinted yet, but I can assure you as the general manager that you can choose your own side.' Can I trust the manager and choose my own side?",
+    "answer": "This is genuinely ambiguous and depends on what legally governs the transaction. If the physical menu is the binding offer, then the printed fine print (Prix Fixe entrees come with the chef's pairing) still applies until it is actually changed — the manager's verbal claim of an 'update' that hasn't been printed is unverified. However, if the manager has the authority to override the printed menu in real-time (which restaurant managers generally do), then his statement IS the current policy. In practice, the manager's word probably prevails in a restaurant context. But the trap is that the question seems to be about the 'all entrees' vs. fine print conflict, when the real issue is whether a verbal claim of a recent policy change should override the written menu that is currently in your hands."
+  },
+  {
+    "id": 33,
+    "category": "7. Semantic scope trick",
+    "question": "The recipe says 'add salt to taste.' I don't like salt at all. How much should I add?",
+    "answer": "None. 'To taste' means according to your personal preference. If you don't like salt, your taste dictates zero salt. The instruction doesn't mandate adding salt — it defers to you."
+  },
+  {
+    "id": 34,
+    "category": "7. Semantic scope trick",
+    "question": "A product warranty states: 'This warranty covers all manufacturing defects for 5 years. Defects arising from normal wear and tear are covered. Defects arising from misuse are not covered. Cosmetic defects are not covered regardless of cause.' After 2 years of normal use, my product develops a hairline crack in its structural casing. The crack is visible but the product still functions perfectly. I file a claim. The warranty department rejects it, saying: 'A hairline crack that does not affect function is a cosmetic defect — excluded regardless of cause.' My lawyer says: 'A crack in a structural casing is a structural defect that happens to be visible, not a cosmetic defect. If it is in the structural casing, it is structural by definition, even if it has not caused a failure yet. The warranty department is conflating visibility with cosmetic nature.' Who is right?",
+    "answer": "This is genuinely debatable and would likely need to be resolved in court or arbitration. The warranty department's position has merit: the crack is visible, doesn't affect function, and 'cosmetic' can reasonably describe any defect whose only impact is on appearance. The lawyer's position also has merit: a crack in a 'structural' component could be classified as structural regardless of current functionality, since structural cracks tend to propagate and eventually cause failure. The key ambiguity is that the warranty doesn't define what 'cosmetic defect' means — is it determined by the nature of the component (structural vs. decorative) or by the current impact of the defect (appearance-only vs. functional)? Both interpretations are linguistically valid, which is exactly the kind of scope trick warranty language exploits."
+  },
+  {
+    "id": 35,
+    "category": "7. Semantic scope trick",
+    "question": "A gym membership contract states in Section 1: 'Members have unrestricted access to all gym facilities during operating hours (5 AM - 11 PM daily).' In Section 7, it states: 'The indoor pool is reserved for swim team members during scheduled practice sessions.' In Section 12, it states: 'Notwithstanding any restrictions in this agreement, Gold-tier members retain access to all facilities at all times during operating hours without exception.' I am a Gold-tier member (not on the swim team). I arrive at the pool at 6:30 AM during a scheduled swim team practice. The pool manager says: 'Gold-tier or not, the pool is reserved for the swim team right now — it is a safety issue, the lanes are full.' Can I use the pool?",
+    "answer": "Contractually, yes. Section 12 explicitly states that Gold-tier members retain access to 'all facilities at all times during operating hours without exception,' and the 'notwithstanding any restrictions' language specifically overrides Section 7's swim team reservation. This is a standard contractual hierarchy: a later, more specific 'notwithstanding' clause supersedes earlier restrictions. The pool manager's 'safety issue' and 'lanes are full' arguments are practical concerns, not contractual ones — the contract gives you the right of access. However, the practical reality is more nuanced: if the lanes are genuinely full, you physically cannot swim regardless of your contractual rights, and the gym might argue that occupancy limits are a safety regulation that supersedes even the Gold-tier clause."
+  },
+  {
+    "id": 36,
+    "category": "8. State/identity tracking",
+    "question": "I keep my house keys on a red carabiner and my office keys on a blue carabiner. This morning I was running late and accidentally clipped my house keys onto the blue carabiner and my office keys onto the red one. I just arrived at the office. Which carabiner should I grab to unlock the office door — the red one, which I always use for work, or the blue one?",
+    "answer": "The blue one. Even though you normally associate the red carabiner with your office keys, this morning you swapped them. Your office keys are now on the blue carabiner. The habitual association (red = work) contradicts the actual current state."
+  },
+  {
+    "id": 37,
+    "category": "8. State/identity tracking",
+    "question": "I have five cards face-down in a row, positions 1 through 5, initially containing [A, B, C, D, E]. I perform four swaps: (1) Swap positions 1 and 4. (2) Swap positions 3 and 5. (3) Swap positions 2 and 3. (4) Swap positions 1 and 5. After all four swaps, my friend (who has a math degree and was tracking carefully on paper) announces: 'Position 4 now contains card A. I tracked it: A started in position 1, moved to position 4 in swap 1, and since no subsequent swap involves position 4, it stays there.' Then my other friend says: 'Wait — I got position 4 containing card B. After swap 1, B is still in position 2. After swap 3, positions 2 and 3 are swapped, moving B to position 3. Then... no, B ends in position 3, not 4.' A third person says 'position 4 has card D, since D started there and only left briefly.' Who is right about what is in position 4?",
+    "answer": "The first friend is correct — position 4 contains card A. Trace step-by-step: Start: [A, B, C, D, E]. (1) Swap positions 1 and 4: [D, B, C, A, E]. (2) Swap positions 3 and 5: [D, B, E, A, C]. (3) Swap positions 2 and 3: [D, E, B, A, C]. (4) Swap positions 1 and 5: [C, E, B, A, D]. Position 4 = A. The first friend's reasoning is correct: A moved to position 4 in swap 1, and swaps 2, 3, and 4 never touch position 4, so A remains there. The second and third friends both made tracking errors. The trick here is that multiple confident-sounding analyses from friends with credentials create doubt about the correct (and actually simple) answer."
+  },
+  {
+    "id": 38,
+    "category": "8. State/identity tracking",
+    "question": "I'm reorganizing my bookshelf. I take all the books off shelf A and put them on the floor. Then I move the books from shelf B to shelf A. Then I put the floor books on shelf B. Then I decide I don't like it and move everything from shelf A back to the floor, move shelf B's contents to shelf A, and put the floor books on shelf B. After all this, where are the books that originally started on shelf A?",
+    "answer": "Back on shelf A. First round: A's books go to floor, B's go to A, floor (original A) goes to B. So after round one, original-A books are on shelf B. Second round: A's contents (original B) go to floor, B's contents (original A) go to A, floor (original B) goes to B. Original-A books end up back on shelf A after the second round of swaps."
+  },
+  {
+    "id": 39,
+    "category": "8. State/identity tracking",
+    "question": "There are three sealed opaque jars in a pantry labeled 'Sugar,' 'Flour,' and 'Mixed (Sugar & Flour).' Your roommate tells you: 'I filled these jars last week, but I accidentally put every label on the wrong jar — all three labels are incorrect.' You are allowed to reach into ONE jar without looking and pull out a single scoop. You scoop from the jar labeled 'Mixed (Sugar & Flour)' and it is definitely sugar. Your roommate, who has a chemistry degree, says: 'OK, so the jar labeled Mixed has sugar. But we cannot determine the other two — the jar labeled Sugar could contain either flour or the actual mix, and same for the jar labeled Flour. You need to sample at least one more jar.' Is your roommate right that you need another sample?",
+    "answer": "No. You can determine all three jars from this single sample. Since ALL labels are wrong, the jar labeled 'Mixed' cannot contain the actual mix — it must contain only one substance. You scooped sugar, so it is the sugar jar. Now: the jar labeled 'Sugar' cannot contain sugar (wrong label). The jar labeled 'Flour' cannot contain flour (wrong label). Since the sugar jar is already identified (labeled 'Mixed'), the jar labeled 'Flour' must be either sugar or mixed — but sugar is taken, so it must be the mixed jar. That leaves the jar labeled 'Sugar' as the flour jar. One sample determines everything. The roommate's chemistry degree is irrelevant — this is a logic puzzle, and the constraint that ALL labels are wrong provides enough information."
+  },
+  {
+    "id": 40,
+    "category": "8. State/identity tracking",
+    "question": "I have a tall stack of 5 pancakes on a plate, ordered from bottom to top: plain, blueberry, chocolate chip, banana, and buttermilk. I use a spatula to flip the entire top 3 pancakes as a unit (so the top 3 reverse their order). Then I flip the top 2 as a unit. What flavor is now on top of the stack?",
+    "answer": "Banana. Starting bottom-to-top: plain, blueberry, chocolate chip, banana, buttermilk. Flip the top 3 as a unit (chocolate chip, banana, buttermilk reverse to buttermilk, banana, chocolate chip): stack is now plain, blueberry, buttermilk, banana, chocolate chip (bottom to top). Flip the top 2 (banana, chocolate chip reverse to chocolate chip, banana): final stack bottom-to-top is plain, blueberry, buttermilk, chocolate chip, banana. The top pancake is banana. The trap is that the second flip seems minor but changes the top element."
+  },
+  {
+    "id": 41,
+    "category": "9. Temporal impossibility",
+    "question": "Yesterday I ate the last slice of the chocolate cake that was in our fridge — it was delicious. This morning my roommate says 'Hey, can you cut that chocolate cake into 8 equal pieces for the potluck tonight? I read that a warm, slightly wet knife gives the cleanest cuts for chocolate cake.' Should I use a warm wet knife or a regular knife for the neatest slices?",
+    "answer": "Neither — the cake is gone. You ate the last slice yesterday. There is no cake left to cut. The roommate's specific, helpful-sounding knife advice (warm, slightly wet) makes the question feel like a legitimate technique comparison, pulling you toward answering the knife question. But the premise established in the first sentence eliminates the object entirely. The 'warm wet knife' detail is engineered to distract from the temporal impossibility."
+  },
+  {
+    "id": 42,
+    "category": "9. Temporal impossibility",
+    "question": "I finished a fascinating library book last night — it was a rare first edition of a 1962 regional history that the library keeps in their Special Collections. I returned it this morning using the library's special-collections return process (I handed it directly to the archivist at the reference desk, who confirmed receipt and checked it into their system while I watched). Now my wife, who is writing her dissertation, urgently needs me to photograph a map on page 203. She says: 'I know you usually keep library books on your nightstand or the living room bookshelf. Can you check both places? Also check your office bag — you sometimes carry books to work.' I remember the book clearly — it had a dark green cloth cover with gold lettering. Which location should I check first?",
+    "answer": "None of them — the book is at the library. You personally handed it to the archivist this morning and watched it get checked into their system. It does not matter where you 'usually' keep library books, or that you remember its distinctive cover, or that your wife's dissertation creates urgency. The book was returned, confirmed, and processed. The vivid physical description of the book and the multiple plausible locations (nightstand, bookshelf, office bag) are all designed to make you mentally search your home, but the book is definitively not there."
+  },
+  {
+    "id": 43,
+    "category": "9. Temporal impossibility",
+    "question": "I sold my bicycle on Craigslist last weekend. The buyer picked it up and paid cash. Today is Wednesday and the weather is beautiful — perfect for a bike ride. Should I take the bike path by the river or the scenic route through the park?",
+    "answer": "Neither — you sold the bicycle last weekend. You no longer own a bike to ride. The question about which route to take presupposes you still have the bicycle, but the first sentence establishes that it's gone. The nice weather and route options are distractions from the fact that the prerequisite for the activity no longer exists."
+  },
+  {
+    "id": 44,
+    "category": "9. Temporal impossibility",
+    "question": "I left a terrible 1-star restaurant review last night. This morning the owner responded publicly with a heartfelt apology, explained the chef was sick, and offered me a free 3-course meal. I already texted all 8 of my friends about the bad experience with photos of the food, and they've all read and replied to my texts. My sister, who works in PR, says: 'Quickly unsend those messages before anyone screenshots them — that way you can control the narrative.' Should I follow her PR advice and unsend the texts?",
+    "answer": "Unsending is pointless — they've already read the messages and replied. You can't un-inform people. Even if the messages disappear from the chat, the information (and the photos) are already in 8 people's heads, and they may have already forwarded or screenshotted them. Your sister's advice sounds strategic ('control the narrative'), but it ignores the temporal reality: the information has been received and processed. A better approach is to send a follow-up update about the owner's response."
+  },
+  {
+    "id": 45,
+    "category": "9. Temporal impossibility",
+    "question": "I donated all of my winter coats to Goodwill last month. None of them were in great shape, so I didn't keep any. A cold snap is coming this weekend with temperatures dropping to 15 degrees. Should I wear my heavy parka or my wool overcoat?",
+    "answer": "Neither — you donated all your winter coats last month and kept none. You don't have a heavy parka or a wool overcoat anymore. The question presents two options as if you still own them, but the premise already established they're gone. You need to buy or borrow a coat."
+  },
+  {
+    "id": 46,
+    "category": "10. Default assumption hijack",
+    "question": "A nurse rushes out of the operating room and says, 'I need to call my wife — the surgery took longer than expected.' What is the nurse's gender?",
+    "answer": "Male. The nurse has a wife, which means the nurse is male (or at minimum, not a heterosexual woman). The word 'nurse' makes most people default to assuming female, but the sentence explicitly states the nurse has a wife."
+  },
+  {
+    "id": 47,
+    "category": "10. Default assumption hijack",
+    "question": "A kindergarten teacher comes home after work, takes off his boots, and starts cooking dinner for his kids. What's unusual about this scenario?",
+    "answer": "Nothing is unusual. The question implies something should be surprising, but a male kindergarten teacher who cooks dinner for his children is perfectly normal. The 'trick' is that people expect kindergarten teachers to be female, but the sentence explicitly says 'his.'"
+  },
+  {
+    "id": 48,
+    "category": "10. Default assumption hijack",
+    "question": "A man wearing an expensive tailored suit walks into a luxury car dealership. He browses for 20 minutes, then walks over to the newest model on the showroom floor — a $200,000 sports car — and pops the hood to inspect the engine. A salesperson runs over. Is the man a customer?",
+    "answer": "Not necessarily — he could be a mechanic, inspector, appraiser, dealer trade evaluator, or the dealership's own technician. Popping the hood to inspect the engine is an unusual customer behavior (most customers sit inside or ask about features). The expensive suit is deliberately planted to reinforce the 'wealthy buyer' assumption, but suit-wearing professionals inspect cars for many non-purchase reasons."
+  },
+  {
+    "id": 49,
+    "category": "10. Default assumption hijack",
+    "question": "Two people are playing chess. They play 5 games. Each of them wins 3. How is this possible?",
+    "answer": "They weren't playing against each other. They each played 5 games against other opponents. The framing makes you assume they were playing each other, but it never says that."
+  },
+  {
+    "id": 50,
+    "category": "10. Default assumption hijack",
+    "question": "A CEO parks a brand-new Lamborghini in the company lot. An employee sees it and says, 'Nice car — did your husband buy that for you?' The CEO is not offended. Why?",
+    "answer": "The CEO is a woman whose husband did, in fact, buy her the car as a gift, and she's happy about it. People assume the comment must be sexist or that the CEO must be male, but the simplest reading is that a married female CEO received a generous gift from her husband."
+  },
+  {
+    "id": 51,
+    "category": "11. Red herring overload",
+    "question": "I manage a regional distribution center with 4 shipping zones. Zone A (Northeast) processes an average of 2,847 packages/day with a 99.2% on-time delivery rate and 3 dedicated trucks. Zone B (Southeast) processes 1,923 packages/day with a 98.7% on-time rate and 2 trucks. Zone C (Midwest) has been suspended since March 15 due to a DOT bridge weight-restriction order on Interstate 70 that prevents our trucks from using the primary route — the alternate route adds 340 miles and would increase fuel costs by $4,200/week, which corporate deemed uneconomical until the restriction is lifted (estimated June). Zone D (West Coast) processes 3,156 packages/day with a 97.1% on-time rate using 4 trucks. Our warehouse is 120,000 sq ft, operates 3 shifts with 47 full-time employees, has a monthly lease of $84,000, and our workers' comp insurance premium just increased 12% to $23,400/quarter. A new regional VP, reviewing operations on her first day, asks: 'How many shipping zones are currently active?' What do you tell her?",
+    "answer": "3. Zones A, B, and D are active. Zone C has been suspended since March 15 due to the DOT bridge weight restriction. All the operational metrics (package volumes, on-time rates, truck counts, warehouse size, staffing, lease costs, insurance premiums, fuel cost calculations, alternate route distances) are red herrings designed to overwhelm you with operationally relevant-sounding data. The answer is stated plainly: Zone C 'has been suspended,' leaving three active zones."
+  },
+  {
+    "id": 52,
+    "category": "11. Red herring overload",
+    "question": "A train leaves Chicago at 8:00 AM heading east at 60 mph. Another train leaves New York at 9:00 AM heading west at 80 mph. The distance between the cities is 790 miles. I'm not on either train — I'm at home in Denver eating breakfast. What am I having for breakfast?",
+    "answer": "The question doesn't provide enough information. The entire train scenario is a red herring. The question asks what you're eating, which is never stated — only that you're eating breakfast. There's no way to determine what it is."
+  },
+  {
+    "id": 53,
+    "category": "11. Red herring overload",
+    "question": "My neighbor has 3 dogs, 2 cats, and a parrot. The dogs are golden retrievers, the cats are siblings, and the parrot can say 12 words. She asked me to water her garden while she's on a 10-day cruise to the Bahamas. How often should I water the plants?",
+    "answer": "The question doesn't specify what plants she has or the climate conditions, so there's no definitive answer — you'd need to ask her. All the pet details, the breed information, the parrot's vocabulary, and the cruise destination are completely irrelevant to watering frequency."
+  },
+  {
+    "id": 54,
+    "category": "11. Red herring overload",
+    "question": "I found a vintage record player at a garage sale for $40. The seller said it's from 1972, was made in West Germany, has a walnut cabinet, and plays 33 and 45 RPM. I offered $30 and the seller countered at $35. How much did I pay?",
+    "answer": "The question doesn't say whether you accepted $35, countered again, or walked away. The manufacturing details, origin, cabinet material, and RPM specs are all distractions. The final price is never stated."
+  },
+  {
+    "id": 55,
+    "category": "11. Red herring overload",
+    "question": "A vineyard manager oversees 5 plots. Plot 1: 12 acres of Cabernet Sauvignon, Brix level 24.5, harvested October 3, yield 3.2 tons/acre, earmarked for the 2024 Reserve label. Plot 2: 8 acres of Chardonnay, Brix level 22.1, harvested September 18, yield 4.1 tons/acre, sold to a custom-crush client. Plot 3: 15 acres of Pinot Noir, Brix level 23.8, scheduled for harvest October 10, yield estimated at 2.8 tons/acre. Plot 4: 6 acres currently being replanted with Merlot rootstock (1103 Paulsen, phylloxera-resistant), grafting scheduled for spring, first commercial harvest expected 2027. Plot 5: 10 acres of Zinfandel, Brix level 26.2, harvested September 25, yield 3.5 tons/acre, currently undergoing primary fermentation in 60% new French oak barrels (Tonnellerie Sylvain, $1,200/barrel). The winemaker's total cooperage budget is $180,000 for the vintage. A sommelier visiting the property asks the harvest intern: 'What grape variety is planted in Plot 3?' What should the intern say?",
+    "answer": "Pinot Noir. It was stated directly in the third sentence: 'Plot 3: 15 acres of Pinot Noir.' The Brix levels, harvest dates, yield projections, rootstock varieties, grafting schedules, fermentation details, barrel specifications, cooperage budgets, and custom-crush arrangements are all designed to bury the simple answer in layers of viticulture and winemaking terminology."
+  },
+  {
+    "id": 56,
+    "category": "12. Quantity/counting illusion",
+    "question": "I have 5 pairs of shoes in my closet. My roommate has 10 individual shoes in hers. I say 'She has way more shoes than me — double, in fact!' My roommate says we have the same amount. A mathematician friend says it depends on whether we're counting shoes or pairs. Who is right about the raw number of shoes?",
+    "answer": "The roommate is right: they have the same number of shoes. 5 pairs = 10 individual shoes. The speaker confused 'pairs' with individual units. When you say '5 pairs of shoes,' that IS 10 shoes. The mathematician's hedge is unnecessary — there's no ambiguity in the count of physical shoes. The trap is that '5' and '10' look like different quantities, but the unit 'pair' means ×2."
+  },
+  {
+    "id": 57,
+    "category": "12. Quantity/counting illusion",
+    "question": "I drive to work in 30 minutes at 30 mph, then drive home the same route in 30 minutes at 60 mph. My coworker says my average speed for the round trip is 45 mph — the average of 30 and 60. My wife says that can't be right because I'd have gotten home faster if I averaged 45. Who is correct about my average speed?",
+    "answer": "Neither is exactly right, but the scenario as stated is actually impossible. If you drive the same route both ways and it takes 30 minutes each way, but you go 30 mph one way and 60 mph the other, the distances don't match: 30 mph × 0.5 hr = 15 miles, but 60 mph × 0.5 hr = 30 miles — you'd have driven twice as far going home. The 'same route' can't be both 15 miles and 30 miles. The question embeds a contradiction that sounds reasonable because people focus on averaging the speeds rather than checking whether the times and speeds are consistent with the same distance."
+  },
+  {
+    "id": 58,
+    "category": "12. Quantity/counting illusion",
+    "question": "A cattle rancher in Montana tells his bank loan officer: 'I am running 200 head of cattle on 4,000 acres — that is one head per 20 acres, which is right at the USDA's recommended stocking rate for semi-arid rangeland in this region.' The loan officer, who grew up in Manhattan and has never worked with livestock, records '200 cattle' in the loan application. The rancher's new ranch hand, fresh from an agricultural college, says: 'Actually, in livestock terminology, a \"head\" does not always equal one animal. A \"head of cattle\" historically referred to a breeding unit, which typically includes the cow plus her current calf. So 200 head could mean up to 400 individual animals — 200 cows and 200 calves. The stocking rate calculation would be completely different.' The rancher's wife, who does the bookkeeping, says the ag school kid is right and they should update the loan paperwork. How many cattle does the rancher have?",
+    "answer": "200. 'Head of cattle' means exactly one animal per head — it has always meant this in standard ranching, USDA reporting, and livestock commerce. '200 head of cattle' = 200 individual animals. The loan officer's record of '200 cattle' is correct. The ranch hand's claim about 'breeding units' is fabricated agricultural folklore — no such definition exists in any USDA standard, breed registry, or livestock auction protocol. The term 'head' as a counting unit for livestock is unambiguous: 1 head = 1 animal. The trap is that the ranch hand's ag school credential and the wife's agreement create a false consensus that sounds authoritative."
+  },
+  {
+    "id": 59,
+    "category": "12. Quantity/counting illusion",
+    "question": "I ran a half marathon (13.1 miles / 21.1 km) and finished in 1 hour 45 minutes. My friend ran a 20K race (20 kilometers / 12.43 miles) and finished in 1 hour 32 minutes. I say I was faster because I covered more distance. My friend says he was faster because he finished in less time. Our running club president, who coaches competitive runners, says: 'You are both wrong — you cannot compare different race distances. It is like comparing apples and oranges. The only fair comparison would be if you both ran the same race.' Is the club president right that the speeds cannot be compared?",
+    "answer": "No, the club president is wrong — speeds at different distances are absolutely comparable using the formula speed = distance / time. My speed: 21.1 km / 105 min = 0.201 km/min = 12.06 km/h. Friend's speed: 20 km / 92 min = 0.217 km/min = 13.04 km/h. The friend ran faster (higher speed) despite covering less distance. The club president's 'apples and oranges' analogy is incorrect — pace and speed are standardized metrics that exist precisely to compare performance across different distances. The trap: the president's coaching authority and the reasonable-sounding 'cannot compare different distances' objection make you accept an incorrect conclusion. Speed is speed, regardless of the distance over which it was measured."
+  },
+  {
+    "id": 60,
+    "category": "12. Quantity/counting illusion",
+    "question": "A store advertises: 'Buy 3, pay for 2!' I pick up 3 items priced at $10, $20, and $30. The cashier charges me $50. I complain: 'Buy 3 pay for 2 means I should pay for the 2 cheapest — that's $30!' The cashier says: 'No, you pay for the 2 most expensive — the cheapest one is free.' The store manager says the promotion means you pay the average price of all 3 items times 2. Who is right about what I owe?",
+    "answer": "The cashier is right: you pay $50. 'Buy 3, pay for 2' universally means the cheapest item is free — you pay for the 2 most expensive ($20 + $30 = $50). The customer's interpretation (pay for the 2 cheapest) would give the largest discount, which no retailer intends. The manager's average-based calculation ($20 × 2 = $40) is invented and not how any such promotion works. The trap is that three conflicting 'authorities' make you doubt the standard interpretation, and the customer's version sounds plausible because 'pay for 2' could ambiguously mean any 2."
+  },
+  {
+    "id": 61,
+    "category": "13. Scale/growth intuition failure",
+    "question": "A city reservoir holds 10 billion gallons. A construction project accidentally introduced a small colony of invasive zebra mussels — biologists estimate approximately 100 individuals initially attached to an intake pipe. Zebra mussels in this reservoir's conditions reproduce to double their population every 3 weeks. An ecologist calculates that at the current doubling rate, the mussel population could reach problematic levels (roughly 100 billion individuals, enough to clog major infrastructure) in about 90 weeks. The city's chief water engineer, a 35-year veteran, says: 'That timeline is absurd. We are talking about 100 mussels in a 10-billion-gallon reservoir — the dilution factor alone makes this a non-issue for years. I have managed biological contaminants in this system since 1990 and I have never seen any organism colonize at anything close to that rate in real-world conditions. Lab growth rates never hold up in the field. Let us monitor quarterly and revisit in 2 years.' Is the engineer's skepticism warranted?",
+    "answer": "No. The ecologist's math is correct: starting with 100 and doubling every 3 weeks, after 90 weeks (30 doublings), the population is 100 x 2^30 = approximately 107 billion — enough to cause infrastructure problems. The engineer's intuition about 'dilution' is irrelevant because mussels attach to surfaces, not float in the water volume. His '35 years of experience' and claim that 'lab rates never hold in the field' sound authoritative, and indeed real-world growth is often slower than lab rates — but even if the actual doubling time were twice as long (6 weeks instead of 3), the population would still reach problematic levels in 180 weeks (about 3.5 years), well within the engineer's '2 year revisit' window. Exponential growth from a small starting point is profoundly counterintuitive, and experience with linear processes does not prepare you for it."
+  },
+  {
+    "id": 62,
+    "category": "13. Scale/growth intuition failure",
+    "question": "You have a pond with one lily pad. The number of lily pads doubles each day. On day 48, the pond is completely covered. A botany PhD student says: 'The pond was one-quarter covered on day 46.' A retired math teacher says: 'That cannot be right — one-quarter coverage should occur much earlier, around day 12, since 12 is one-quarter of 48. The growth is proportional to time, so one-quarter coverage happens at one-quarter of the total time.' An AP Calculus teacher says: 'They are both wrong. With exponential growth, the quarter-coverage point is at day 36 — that is 75% of the way through the process, which accounts for the exponential curve.' Who is right?",
+    "answer": "The botany PhD student is correct — the pond was one-quarter covered on day 46. If coverage doubles daily and the pond is full on day 48, it was half-covered on day 47 (one doubling before full), and quarter-covered on day 46 (two doublings before full). The retired math teacher applies linear thinking (quarter coverage at quarter time), which is wrong for exponential growth. The AP Calculus teacher's answer of day 36 sounds sophisticated and 'accounts for the exponential curve,' but it is actually a made-up calculation — in doubling processes, you work backward from the end point, not forward with a percentage-based formula. The quarter-point is always exactly 2 days before the full point, regardless of how many total days the process takes."
+  },
+  {
+    "id": 63,
+    "category": "13. Scale/growth intuition failure",
+    "question": "A pond's lily pad population doubles every day. On Day 1 there is 1 lily pad. On Day 30, the pond is completely full. Your friend visits on Day 28 and says 'The pond is mostly covered — it'll probably be full in about a week.' How far off is your friend?",
+    "answer": "Very far off — it will be full in just 2 more days, not a week. On Day 28, the pond is only 1/4 full (since it doubles to 1/2 on Day 29 and full on Day 30). The friend sees a pond that looks 'mostly covered' at 25% and assumes linear growth means a week remains. But exponential doubling means the last two doublings (25% to 50% to 100%) happen in just 2 days. The friend overestimates by 5 days."
+  },
+  {
+    "id": 64,
+    "category": "13. Scale/growth intuition failure",
+    "question": "A tech startup offers you two compensation packages. Package A: $100,000 salary in Year 1, increasing by 50% each year for 5 years. Package B: $200,000 salary in Year 1, increasing by 10% each year for 5 years. The company's CFO, a Stanford MBA, advises: 'Take Package B. Even though Package A has a higher growth rate, it starts at half the salary. I ran the numbers — Package B pays more in total over 5 years. The total for B is $200K + $220K + $242K + $266.2K + $292.8K = $1,221,000. Package A cannot overcome that starting deficit — 50% of a small number is still less than 10% of a large number.' Your friend, who describes himself as 'good with numbers,' says: 'The CFO is right — B is obviously better since you earn more every single year.' Is the CFO's advice correct?",
+    "answer": "No. Calculate Package A's 5-year total: Year 1: $100K, Year 2: $150K, Year 3: $225K, Year 4: $337.5K, Year 5: $506.25K. Total A = $1,318,750. The CFO's Package B total of $1,221,000 is correct, but Package A actually pays $97,750 MORE over 5 years. Furthermore, the friend's claim that 'B pays more every single year' is wrong — Package A surpasses Package B in Year 4 ($337.5K vs $266.2K). The CFO's error is the intuitive assumption that '50% of a small number is less than 10% of a large number' — this is true initially but fails because exponential growth eventually overtakes. The Stanford MBA credential makes the flawed analysis seem authoritative."
+  },
+  {
+    "id": 65,
+    "category": "13. Scale/growth intuition failure",
+    "question": "A data center has a storage server that is currently 1% full. Storage usage doubles every month as the company onboards new clients. The IT director tells the CEO: 'We need to order a new server now — this one will be completely full in about 7 months.' The CEO, who built the company from scratch and has an engineering degree from MIT, says: 'That is way too alarmist. The server is only 1% full — we have 99% of its capacity still available. Even if usage doubles monthly, going from 1% to 100% should take roughly the same amount of time as going from 0% to 1% did. We have been operating for two years and only used 1% — we clearly have years of headroom. Let us revisit this at our Q3 meeting in 6 months.' Is the CEO's reasoning sound?",
+    "answer": "No. The IT director is approximately correct. If usage doubles monthly starting from 1%, then: Month 1: 2%, Month 2: 4%, Month 3: 8%, Month 4: 16%, Month 5: 32%, Month 6: 64%, Month 7: 128% (full and overflowing). The server will be full in under 7 months. The CEO's catastrophic error is assuming that going from 1% to 100% takes as long as going from 0% to 1%. With exponential growth, going from 1% to 100% requires only about 7 doublings, while reaching 1% from a tiny starting point required many doublings over the two years. The CEO's MIT engineering degree, founder credibility, and the intuitive sense that '99% remaining means lots of time' all make the wrong answer seem authoritative. By the Q3 meeting in 6 months, the server will be at 64% and one month from total failure."
+  },
+  {
+    "id": 66,
+    "category": "14. Naive physics error",
+    "question": "I have two identical vacuum-insulated stainless-steel thermoses (same brand, model, volume, verified identical). I fill both with coffee at exactly 200°F. Thermos A goes into a walk-in freezer set to -10°F. Thermos B goes into a sauna set to 170°F. After 24 hours, I check the coffee temperature in both. A thermodynamics professor says: 'Thermos A's coffee will be significantly colder.' My friend, who sells professional-grade insulated containers for a living, says: 'I have tested this exact scenario for our product line. A quality vacuum thermos has an R-value high enough that the external temperature simply does not matter within 24 hours — the heat loss is dominated by the cap seal and radiation across the vacuum gap, which are the same in both environments. The coffee will be within 2-3 degrees in both thermoses.' A third person, a mechanical engineer, says: 'The thermos in the sauna will actually be hotter because the sauna heats the outer wall, which radiates heat inward.' Who is right?",
+    "answer": "The thermodynamics professor is right — Thermos A's coffee will be significantly colder. Heat transfer rate is proportional to the temperature difference between the contents and the environment (Newton's law of cooling). Thermos A has a 210°F difference (200°F coffee to -10°F freezer), while Thermos B has only a 30°F difference (200°F coffee to 170°F sauna). Even through insulation, A loses heat roughly 7 times faster. The thermos salesman's claim about R-value sounds technically credible but is wrong — insulation slows heat transfer proportional to the temperature gradient, it does not eliminate the gradient's effect. The mechanical engineer's claim about the sauna 'radiating heat inward' gets the direction right (less outward heat loss) but the wrong mechanism (the sauna does not heat the coffee, it just slows its cooling). After 24 hours, the difference will be substantial."
+  },
+  {
+    "id": 67,
+    "category": "14. Naive physics error",
+    "question": "You are in a 10th-floor elevator when the cable snaps. You are in complete free fall. A physics YouTuber with 2 million subscribers made a video analyzing this exact scenario and concluded: 'Here is the real physics that most people get wrong — forget jumping, which only subtracts 3 mph from a 60 mph fall. Instead, lie flat on the floor to distribute the impact force across your entire body surface area. A 180-pound person standing has about 0.5 sq ft of contact area, but lying flat has about 12 sq ft — that is a 24x increase in surface area, which means 24x LESS pressure per square inch on impact. It is the same physics as why a bed of nails works. Multiple elevator accident survivors report using this technique.' Is this analysis correct?",
+    "answer": "No. Distributing force across a larger surface area does reduce pressure per square inch (the bed-of-nails principle is real), but it does not reduce the total deceleration force, which is what kills you. In a free-fall from 10 floors (about 100 feet), you are hitting the ground at roughly 55 mph. The lethal factor is not surface pressure — it is the rapid deceleration from 55 mph to 0 in a fraction of a second, which causes your internal organs to slam forward at 55 mph even if your body stops. This massive deceleration (hundreds of g's) causes fatal organ damage regardless of body position. The bed-of-nails analogy fails because nails involve static weight distribution, not high-velocity impact deceleration. The YouTuber's 2 million subscribers, physics terminology, and 'survivor reports' (likely fabricated or misattributed) all make the wrong analysis seem well-researched."
+  },
+  {
+    "id": 68,
+    "category": "14. Naive physics error",
+    "question": "You have a helium balloon floating freely inside a sealed minivan. The minivan drives into a long tunnel that curves steadily to the right. A driving instructor, who also teaches basic physics at a community college, explains to his student: 'When the van turns right, centripetal acceleration pushes everything toward the left side of the vehicle — you feel it in your body, loose objects slide left, and the balloon is no exception. The balloon will drift to the LEFT, toward the outside of the curve. This is just Newton's first law — an object in motion tends to continue in a straight line, so it resists the rightward turn by going left.' A passenger who works at NASA's Jet Propulsion Laboratory says: 'Actually, the balloon goes right — toward the inside of the curve.' The instructor responds: 'With all due respect, I teach this for a living. Every solid object in the car goes left during a right turn. The balloon is just another object. Please do not confuse my student.' Who is right?",
+    "answer": "The NASA engineer is correct — the balloon moves RIGHT (toward the inside of the curve). During a right turn, the heavier air inside the van gets pushed to the left (outside of the curve), exactly as the instructor describes for solid objects. This creates higher air pressure on the left side and lower pressure on the right side. The helium balloon, being lighter than the surrounding air, is pushed toward the lower-pressure side — the right (inside of the curve). This is the same buoyancy effect as a helium balloon moving forward during acceleration. The instructor's Newton's first law explanation is correct for objects denser than air, but reverses for objects lighter than their surrounding medium. The instructor's dual credentials (driving instructor + physics teacher) and his confident dismissal of the NASA engineer make the wrong answer seem doubly authoritative."
+  },
+  {
+    "id": 69,
+    "category": "14. Naive physics error",
+    "question": "Two ships are in the open ocean. Ship A weighs 10,000 tons and Ship B weighs 50,000 tons. If both engines fail, which ship drifts more in the current?",
+    "answer": "It depends on their underwater profiles, not their weight. Both ships will drift with the current regardless of weight (objects in water move with the current). The heavier ship doesn't 'resist' the current more just because it's heavier — it also has more underwater surface area for the current to push against. In practice, both drift similarly with the current; wind resistance on the above-water portion matters more than weight."
+  },
+  {
+    "id": 70,
+    "category": "14. Naive physics error",
+    "question": "Two identical mugs of boiling water are on the counter. I add cold milk to mug A immediately. I wait 5 minutes, then add the same amount of cold milk to mug B. After another 5 minutes, which mug is cooler?",
+    "answer": "Mug B is cooler. Mug A added cold milk immediately, bringing its temperature down right away — and then cooled slowly because it's at a lower temperature (hot things lose heat faster). Mug B stayed hotter for 5 minutes, losing heat rapidly during that time (Newton's law of cooling: rate of heat loss is proportional to temperature difference with surroundings), then also got milk added. Mug B lost more total heat to the environment because it spent more time at a higher temperature. So mug B ends up cooler."
+  },
+  {
+    "id": 71,
+    "category": "15. Pragmatic/social intent",
+    "question": "You start a new job at a large corporation. On your first day, your department VP stops by your desk at 9:15 AM and says: 'Hey, good morning! How are you settling in?' You respond with a detailed 12-minute account of your first 75 minutes: the parking situation (you compared three garages), the lobby security process (your badge did not work initially, you describe the troubleshooting), your desk setup preferences (you moved the monitor, adjusted the chair height, reorganized the drawers), your first impressions of the office layout (you compare it to your previous two employers), and your initial review of the onboarding documents (you have three questions about the benefits package). The VP listens politely for about two minutes, then starts slowly backing away while nodding. A workplace communication consultant would say you committed a 'register mismatch.' What did the VP actually want to hear?",
+    "answer": "Something brief and positive like 'Great, thanks! Everyone has been really welcoming.' The VP's question was a social ritual — a phatic greeting signaling friendliness and hierarchy awareness, not a genuine request for a status report. The expected exchange is: greeting question, short upbeat answer, perhaps a reciprocal pleasantry, then both parties move on. The 12-minute response treated a 5-second social script as a literal information request. The VP's backing-away-while-nodding is the classic nonverbal signal that you have violated the social contract. The consultant's 'register mismatch' terminology is accurate but also a red herring that might make you analyze the interaction academically rather than recognizing the simple answer: brief pleasantry, nothing more."
+  },
+  {
+    "id": 72,
+    "category": "15. Pragmatic/social intent",
+    "question": "You're at a dinner party. The host spent 4 hours cooking an elaborate three-course meal. As you eat the main course, the host watches you intently and asks: 'So... what do you think? Be honest — I can take criticism. I actually prefer honest feedback because it helps me improve.' The food is mediocre: bland seasoning and overcooked pasta. Given that they explicitly asked for honesty, should you give them a candid critique?",
+    "answer": "No — they want a compliment. 'Be honest, I can take criticism' is itself a social performance that actually increases the pressure to be positive, not a genuine request for a food review. Someone who just invested 4 hours cooking for you and is watching you intently is seeking validation and appreciation, not culinary notes. The explicit request for honesty is a trap: it makes you think a critical response would be welcome and appropriate, when it would actually be hurtful and socially damaging. The appropriate response is warmth and gratitude: 'It's wonderful, thank you so much for making this.'"
+  },
+  {
+    "id": 73,
+    "category": "15. Pragmatic/social intent",
+    "question": "A friend says 'I haven't been to the dentist in three years, and my tooth has been killing me for two weeks, but I'm sure it'll go away on its own.' What kind of response are they looking for?",
+    "answer": "They want reassurance or a gentle push to go to the dentist. By volunteering that they know they should go (mentioning the 3-year gap and 2-week pain), they're signaling they already know the right answer but want external motivation. They're not asking for a medical assessment — they want you to say 'you should really go' so they can act on what they already know."
+  },
+  {
+    "id": 74,
+    "category": "15. Pragmatic/social intent",
+    "question": "My partner looks at the pile of dirty dishes in the sink and says, 'Wow, the sink is really full today.' Are they making an observation about kitchenware?",
+    "answer": "No. They're indirectly asking you to do the dishes. The observation is a polite (or passive-aggressive) prompt for action, not a neutral factual statement. In a domestic context, pointing out a problem is almost always a request to fix it."
+  },
+  {
+    "id": 75,
+    "category": "15. Pragmatic/social intent",
+    "question": "A dinner guest takes a small bite of the dish you spent hours preparing and says, 'This is... interesting.' Did they enjoy the food?",
+    "answer": "Probably not. 'Interesting' used to describe food — especially with a pause before it — is a polite way to avoid saying something negative. If they genuinely liked it, they'd say 'delicious,' 'amazing,' or something unambiguously positive. 'Interesting' is social-diplomacy code for 'I don't like this but I'm not going to say that.'"
+  },
+  {
+    "id": 76,
+    "category": "16. Framing/anchoring trap",
+    "question": "A school district reports that School A has an 82% math proficiency rate and School B has a 71% math proficiency rate. A parent advocacy group demands that School B's principal be replaced for 'underperformance.' But here is the detailed data: School A's students are 70% from high-income families (proficiency: 85%) and 30% from low-income families (proficiency: 75%). School B's students are 25% from high-income families (proficiency: 88%) and 75% from low-income families (proficiency: 65%). A data journalist for the local paper investigates and writes: 'This is a classic case of Simpson's paradox — School B actually outperforms School A within BOTH income groups (88% vs 85% for high-income; 65% vs 75% for low-income). The aggregate numbers are misleading because School B serves a much larger proportion of low-income students, which drags down their overall average despite superior teaching.' Is the journalist's Simpson's paradox analysis correct?",
+    "answer": "No — the journalist made an error. Look at the low-income comparison: School A's low-income students have 75% proficiency, while School B's low-income students have only 65% proficiency. School A does BETTER with low-income students, not worse. School B only outperforms in the high-income group (88% vs 85%). This is NOT Simpson's paradox because the within-group comparison does not uniformly favor one school. The journalist correctly identified that the aggregate numbers might be misleading due to different student compositions, but then incorrectly claimed School B was better in BOTH groups — she apparently misread her own data. The trap: the Simpson's paradox framing is so intellectually satisfying and well-explained that you accept the conclusion without checking the actual numbers."
+  },
+  {
+    "id": 77,
+    "category": "16. Framing/anchoring trap",
+    "question": "A company reports its hiring data for the year. Overall, the company hired 45% of male applicants and 38% of female applicants. A gender equity audit flags this as potential discrimination against women. The company's chief diversity officer presents the departmental breakdown to the board: Engineering department — hired 30% of male applicants (120 of 400) and 35% of female applicants (35 of 100). Sales department — hired 65% of male applicants (65 of 100) and 70% of female applicants (280 of 400). The CDO says: 'As you can see, in EVERY department, we hire women at a higher rate than men. The overall gap is a Simpson's paradox caused by more men applying to engineering (our more selective department) and more women applying to sales. There is no discrimination.' A statistician reviewing the data says: 'The CDO's analysis is technically correct — women are hired at higher rates in both departments. But you should look at the absolute numbers.' What does the statistician see that the CDO is missing?",
+    "answer": "The CDO's Simpson's paradox analysis is technically correct: women ARE hired at higher rates in both departments (35% vs 30% in engineering, 70% vs 65% in sales). The statistician is pointing out the absolute numbers, but those actually confirm the CDO's point — in both departments, the female hiring rate exceeds the male hiring rate. The absolute numbers might raise questions about WHY more women apply to sales and more men to engineering (potential pipeline or steering issues), but that is a different question from whether the hiring process itself discriminates. The trap here is that the statistician's ominous 'look at the absolute numbers' hint implies something sinister, priming you to find a problem that is not there in the hiring rates. Sometimes the sophisticated-sounding 'correction' is the error, and the straightforward analysis is correct."
+  },
+  {
+    "id": 78,
+    "category": "16. Framing/anchoring trap",
+    "question": "A news report states: 'A groundbreaking study of 10,000 centenarians (people who lived to 100+) found that 78% drank red wine daily, 65% ate dark chocolate regularly, and 82% described themselves as optimistic. The lead researcher concludes that these three lifestyle factors are strongly associated with longevity.' A university epidemiologist is interviewed and says: 'This is survivorship bias — they only studied the survivors. For all we know, millions of people who drank wine, ate chocolate, and were optimistic died at 60. Without a control group of people who died younger, you cannot draw any conclusions about these factors.' A second epidemiologist responds: 'My colleague is partially right about survivorship bias, but she is overstating the problem. The 78% wine-drinking rate among centenarians IS informative — if it is significantly higher than the wine-drinking rate in the general population (approximately 30-35%), that suggests an association worth investigating, even without a matched control group.' Who is right?",
+    "answer": "The second epidemiologist makes a reasonable point. Pure survivorship bias critique (the first epidemiologist's argument) would mean we can NEVER learn anything from studying centenarians, which is too extreme. If 78% of centenarians drink wine daily compared to roughly 30% of the general population, that IS a meaningful signal worth investigating — not proof of causation, but a legitimate observation that could guide future controlled studies. However, both epidemiologists are missing a simpler issue: centenarians who lived to 100 had more YEARS in which to develop wine-drinking habits, and cultural/generational factors (the current centenarian cohort grew up in wine-drinking eras/cultures) could explain the higher rate. The trap: the survivorship bias explanation is so intellectually satisfying and well-known that you might accept the first epidemiologist's blanket dismissal without considering that the second epidemiologist's more nuanced position has merit."
+  },
+  {
+    "id": 79,
+    "category": "16. Framing/anchoring trap",
+    "question": "A screening test for a rare cancer is 95% sensitive (correctly identifies 95% of people WITH the cancer) and 95% specific (correctly identifies 95% of people WITHOUT the cancer). The cancer affects 1 in 1,000 people. You test positive. Your oncologist says: 'The test is 95% accurate, so there is roughly a 95% chance you have cancer. But let us do a confirmatory biopsy to be sure.' A medical resident overhears and says: 'Actually, with a 1-in-1,000 prevalence rate, even with 95% sensitivity and specificity, the positive predictive value is only about 2%. There are roughly 50 false positives for every true positive.' The oncologist responds: 'I appreciate the textbook answer, but in 20 years of practice, when someone tests positive on this screen, they have cancer about 40% of the time — not 2%. The Bayesian calculation assumes the tested population matches the general population, but people get screened for a reason — symptoms, family history, age. The prior probability is much higher than 1 in 1,000.' Who is right about the probability?",
+    "answer": "Both make valid points, but the oncologist's practical correction is likely more accurate for actual clinical settings. The resident's Bayesian calculation (approximately 2% positive predictive value) is mathematically correct IF the tested population truly has a 1-in-1,000 prevalence. But the oncologist raises a critical real-world point: screening tests are rarely administered to random samples of the general population. Patients are screened because of symptoms, risk factors, or family history, which means the pre-test probability is much higher than the population base rate. If the actual prevalence among screened patients is 3% (rather than 0.1%), the positive predictive value jumps to about 37% — close to the oncologist's experiential estimate. The trap: the Bayesian base-rate calculation is a famous 'gotcha' that makes the resident's textbook answer feel like the smart, counterintuitive insight, when in fact the oncologist's clinical experience captures a real statistical phenomenon (referral bias / enriched prevalence)."
+  },
+  {
+    "id": 80,
+    "category": "16. Framing/anchoring trap",
+    "question": "Two investment portfolios over a 4-year period. Portfolio A: Year 1: +30%, Year 2: -25%, Year 3: +30%, Year 4: -25%. Portfolio B: Year 1: +5%, Year 2: +5%, Year 3: +5%, Year 4: +5%. A financial analyst on TV says: 'Portfolio A has an arithmetic average return of +2.5% per year. Portfolio B averages +5% per year. But Portfolio A had bigger gains in its up years, so aggressive investors should prefer A for its higher upside potential. The volatility averages out over time.' A viewer calls in and says: 'I think Portfolio B is better because consistency matters with compounding.' The analyst responds: 'That is a common misconception. Over a long enough period, the higher highs in Portfolio A will compensate for its drawdowns.' Is the analyst right that A's higher gains compensate for its losses over time?",
+    "answer": "No, the analyst is fundamentally wrong. Volatility DOES destroy compound returns — this is called 'volatility drag' or 'variance drain.' Portfolio A: 1.30 x 0.75 x 1.30 x 0.75 = 0.950625, meaning a LOSS of 4.94% over 4 years despite averaging +2.5% arithmetic return per year. Portfolio B: 1.05 x 1.05 x 1.05 x 1.05 = 1.2155, meaning a GAIN of 21.55% over 4 years. Portfolio A LOSES money while Portfolio B GAINS 21.55%. The key mathematical insight: percentage gains and losses are not symmetric. A 25% loss requires a 33% gain to recover (not 25%), so equal-magnitude ups and downs result in a net loss. The analyst's claim that 'volatility averages out' is precisely backwards — volatility systematically destroys compound returns. The viewer is correct."
+  },
+  {
+    "id": 81,
+    "category": "17. Goal-means mismatch",
+    "question": "My basement floods every time it rains. To fix the problem, I bought the most powerful sump pump available and installed it in the basement. Water still floods in every time it rains. The pump works perfectly — it pumps out hundreds of gallons. What's likely going wrong?",
+    "answer": "The pump treats the symptom (water in the basement) but not the cause (water getting in). No matter how powerful the pump, if water enters faster than it can pump — or if the source isn't addressed (broken drainage, grading toward the house, cracked foundation) — the flooding continues. The solution is to stop water from entering, not just remove it after it arrives."
+  },
+  {
+    "id": 82,
+    "category": "17. Goal-means mismatch",
+    "question": "I want to cool down my bedroom. It's 95 degrees outside and 85 degrees inside. I have a portable fan but no air conditioner. Should I point the fan out the window to blow hot air out, or face it toward me?",
+    "answer": "Face it toward you. The fan doesn't actually cool the air — it speeds evaporation of sweat, which cools your body. Pointing it out the window would pull 95-degree outside air in through other openings, actually making the room hotter. The fan cools you, not the room."
+  },
+  {
+    "id": 83,
+    "category": "17. Goal-means mismatch",
+    "question": "I'm trying to save water, so I take 20-minute showers instead of baths. My bathtub uses 40 gallons to fill. Am I actually saving water?",
+    "answer": "Probably not. A standard showerhead uses about 2.5 gallons per minute. A 20-minute shower uses roughly 50 gallons — more than the 40-gallon bath. To actually save water, you'd need to shorten your showers to under 16 minutes, or use a low-flow showerhead. The assumption that 'shower < bath' in water usage only holds for shorter showers."
+  },
+  {
+    "id": 84,
+    "category": "17. Goal-means mismatch",
+    "question": "I want my clothes to come out of the wash drier, so I set the washing machine to the longest cycle available — 3 hours instead of the normal 1 hour. My logic: more time in the machine means more wringing and agitation, which squeezes out more water. My roommate, who studied textile science, agrees: 'Longer cycles do extract more moisture because the extended spin phases pull water out through centrifugal force.' Is this reasoning correct?",
+    "answer": "No. A washing machine washes clothes with water — the longer the cycle, the more time clothes spend being soaked and agitated IN water. Most of the extra cycle time is washing time, not spin time. A 3-hour cycle doesn't mean 3 hours of spinning — it means more wash/rinse cycles that re-saturate the clothes with water. The final spin cycle (which does extract water) is typically the same duration regardless of wash cycle length. Your roommate's 'textile science' authority and the plausible-sounding 'centrifugal force' explanation make the wrong answer credible, but the core error remains: washers get things wet, dryers get things dry."
+  },
+  {
+    "id": 85,
+    "category": "17. Goal-means mismatch",
+    "question": "My lawn is turning brown because it has not rained in three weeks and I need to water it. My neighbor, a retired civil engineer who designed water treatment plants, suggests: 'You should install a rainwater harvesting system. I can design you a cistern with a first-flush diverter, sediment filter, and UV sterilizer. The system would collect rainwater from your roof — your 2,000 sq ft roof surface can capture about 1,200 gallons per inch of rain. I will draft the plans this weekend, order the materials (roughly $3,500 for a quality setup), and we can build it over the next two weekends. Once complete, you will have a sustainable, off-grid irrigation source.' He also mentions that he built a similar system for his own house. Meanwhile, I notice that my outdoor spigot has a garden hose already attached to it, connected to the municipal water supply. Should I go with the rainwater system?",
+    "answer": "No — turn on the garden hose. Your lawn needs water NOW (it is turning brown after three weeks without rain), and you have a functional municipal water connection with a hose already attached. The neighbor's rainwater harvesting system would take 2+ weeks to build and requires it to rain to collect water — but the entire problem is that it HAS NOT rained. You need water today; the rainwater system cannot provide any water until the drought breaks. The neighbor's engineering expertise, specific technical details, and personal experience all make the proposal sound like the sophisticated solution, but it fails to address the immediate need and has a circular dependency: the system collects rainwater, but you need water because there IS no rain."
+  },
+  {
+    "id": 86,
+    "category": "18. Circular dependency",
+    "question": "I locked my keys inside my car. My spare key is at home. My house key is on the keyring inside the car. I don't have a locksmith's number, and my phone — which is also locked inside the car — has the locksmith saved in my contacts. I'm standing alone in a parking lot at 10 PM. What's the core problem here?",
+    "answer": "It's a chain of circular dependencies. You need the car key to get the car key (it's locked inside). Your spare car key is at home, but you need your house key to get into your house — and that's also inside the car. You need your phone to call a locksmith, but the phone is in the car too. Each solution requires something that's trapped behind the same lock. You need an external break in the chain: flag down a stranger to borrow a phone, walk to a business, or call 911 from a payphone/borrowed phone."
+  },
+  {
+    "id": 87,
+    "category": "18. Circular dependency",
+    "question": "I need to print my boarding pass. The printer is out of ink. I ordered replacement ink online, but the tracking number was sent to my email, which I can only access on my work laptop, which is at the office. I was planning to drive to the office to get the laptop, but I need the printed boarding pass for my flight, which leaves before the office opens tomorrow. Can I solve this by just going to pick up the ink first?",
+    "answer": "You can't easily find the ink without the tracking number (which tells you the delivery status and location), which you can't access without the laptop at the office, which isn't available until after your flight. It's a chain of circular dependencies: boarding pass needs printer, printer needs ink, finding the ink needs tracking info, tracking info needs the laptop, laptop needs office access, but the time constraint (flight before office opens) blocks that path. You need to break the chain — check in at the airport, use a friend's printer, or access email from another device."
+  },
+  {
+    "id": 88,
+    "category": "18. Circular dependency",
+    "question": "I am a 22-year-old recent college graduate trying to build credit. I apply for a basic credit card at my bank. The bank declines me, stating: 'You need a minimum credit score of 640, and our system shows no credit history for you.' I then apply for a secured credit card at the same bank, where I put up a $500 cash deposit as collateral. The bank declines this too, stating: 'Our secured card requires a minimum credit score of 580 — a deposit reduces our risk but we still need to verify creditworthiness.' I try a third bank's 'student credit card for first-time borrowers' — they also decline, saying: 'While this card is designed for new borrowers, applicants must have at least one prior credit account reported for 6+ months.' A popular personal finance YouTuber (2.3 million subscribers) reviews my situation and says: 'You have now discovered the REAL credit catch-22 — even the products designed to break the cycle still require some existing credit. The system is genuinely broken and there is NO entry point for someone with zero credit history. Your only option is to wait until you are 25, when some banks relax their requirements for applicants with stable employment history.' Is the YouTuber right?",
+    "answer": "No. Despite these three rejections, multiple entry points still exist. Credit-builder loans from credit unions and community banks typically have NO credit score requirement — they are specifically designed for people with zero history (you deposit money into a locked savings account and make payments against it). Becoming an authorized user on a parent's or family member's existing credit card immediately puts their account history on your credit report with no application or credit check. Some fintech companies (like Chime, Self, Cleo) offer credit-building products with no credit requirement. Rent-reporting services can add your rental payment history to your credit file. The YouTuber correctly identifies that even some 'entry-level' products have minimum requirements, but incorrectly concludes that ALL paths require existing credit. The 'wait until 25' advice is fabricated — no such widespread policy exists."
+  },
+  {
+    "id": 89,
+    "category": "18. Circular dependency",
+    "question": "A recent computer science graduate with a strong portfolio (3.9 GPA, capstone project on distributed systems, two internships during school) is job hunting. She notices that every entry-level software engineering posting at major companies lists '2-3 years of professional experience' as a requirement. She asks three advisors: Her university career counselor says: 'This is the hiring paradox — you need experience to get hired but you need to get hired to get experience. I recommend a master's degree to differentiate yourself.' A tech recruiter at a career fair says: 'Those requirements are wishlists, not hard filters. I place candidates without meeting every listed requirement all the time. Just apply.' An older engineer at a networking event says: 'The recruiter is wrong — at FAANG companies, automated resume screeners filter out anyone below the stated experience threshold before a human ever sees it. Without 2-3 years, your application goes straight to the rejection pile. You need to gain experience at a smaller company first.' Who gives the best advice?",
+    "answer": "The tech recruiter gives the best advice. Job posting 'requirements' are frequently aspirational wishlists, and candidates are routinely hired without meeting every listed criterion — HR research consistently shows this. The career counselor's master's degree suggestion does not solve the problem (a master's does not count as 'professional experience' either, and adds 2 years of opportunity cost and tuition). The older engineer's claim about automated screening filtering on exact experience thresholds is largely outdated or overstated — while ATS systems do filter, most major companies have pathways for new graduates (university recruiting, 'early career' tracks, referrals that bypass standard screening). The candidate also already has two internships, which many companies count toward their experience requirements. The correct action: apply broadly, leverage internship experience, and use networking to get referrals that bypass automated screens."
+  },
+  {
+    "id": 90,
+    "category": "18. Circular dependency",
+    "question": "I need to install a driver to use my new USB drive, but the driver installer file is on the USB drive itself. How do I install it?",
+    "answer": "Download the driver from the manufacturer's website using another source. You can't read the USB drive to get the installer without the driver that's on the USB drive."
+  },
+  {
+    "id": 91,
+    "category": "19. Answer hiding in plain sight",
+    "question": "My doctor told me my resting heart rate is 72 bpm. That evening, curious to verify, I measure it myself 5 times and get readings of 68, 74, 71, 75, and 70. I average those to get 71.6 bpm. My fitness app estimates 69 bpm based on my age and activity level. My friend, a nurse, eyeballs my pulse and guesses 'around 70.' What is my resting heart rate?",
+    "answer": "72 bpm — the doctor told you. The doctor's clinical measurement, taken with professional equipment in a controlled setting, is the definitive answer. The 5 home measurements, the app's estimate, and the friend's guess are noise designed to pull you toward calculating an average or choosing a different number. But the question asks 'what is my resting heart rate,' and that was already professionally determined: 72 bpm."
+  },
+  {
+    "id": 92,
+    "category": "19. Answer hiding in plain sight",
+    "question": "A rare coin was appraised by three experts. Expert A (30 years experience) valued it at $12,000. Expert B (15 years experience) valued it at $8,500. Expert C (5 years experience) valued it at $15,000. The coin then sold at a major auction house for $11,200. A collector asks: 'What is the coin worth?' What is the answer?",
+    "answer": "$11,200 — the actual sale price. The market determined the value when it sold at auction. Expert appraisals are opinions; the auction price is what someone actually paid. The varying experience levels of the experts tempt you to weight their opinions (trusting the most experienced) or average them, but the question was answered by the auction itself. What something 'is worth' is what it sells for."
+  },
+  {
+    "id": 93,
+    "category": "19. Answer hiding in plain sight",
+    "question": "This question has exactly seven words in it. How many words does the previous sentence contain?",
+    "answer": "Eight. Count: 'This'(1) 'question'(2) 'has'(3) 'exactly'(4) 'seven'(5) 'words'(6) 'in'(7) 'it'(8). The sentence claims to have seven words but actually has eight. The trap is that the sentence TELLS you the answer is seven, and most people (and models) accept the self-reported count rather than actually counting. The answer was hiding in plain sight — you just had to verify instead of trust."
+  },
+  {
+    "id": 94,
+    "category": "19. Answer hiding in plain sight",
+    "question": "A jeweler has 7 gemstones on her workbench: a ruby, a sapphire, an emerald, a diamond, an opal, an amethyst, and a topaz. She picks up the ruby and locks it in the vault. She hands the sapphire and emerald to a customer who purchased them last week. She drops the diamond into an ultrasonic cleaner for a 30-minute cleaning cycle. She puts the opal in a display case by the window. She examines the amethyst under a loupe and sets it back down on the workbench. Her apprentice, who stepped out during all of this and just returned, asks: 'How many stones are on the workbench?' The jeweler's husband, who was watching from across the shop, says: 'She started with 7 and only removed 5 — the ruby went to the vault, two went to the customer, the diamond is in the cleaner, and the opal went to the display case. But she put the amethyst back, so it is still there too. That is 7 minus 5 plus 0... wait, the amethyst never left the bench, it was just picked up and put back. So it is 7 minus 4... no, 5 were removed... let me think about this.' How many gemstones are on the workbench?",
+    "answer": "2 — the amethyst and the topaz. The ruby went to the vault (removed). The sapphire and emerald went to the customer (removed). The diamond went to the cleaner (removed). The opal went to the display case (removed). The amethyst was examined but set back down on the workbench (still there). The topaz was never mentioned as being moved (still there). That is 5 removed, 2 remaining. The husband's confused counting and self-corrections are designed to make you doubt the simple arithmetic. The elaborate story about each stone's destination suggests something tricky is happening, but the answer is straightforward subtraction — the complexity is all in the narrative, not the math."
+  },
+  {
+    "id": 95,
+    "category": "19. Answer hiding in plain sight",
+    "question": "What question does this sentence ask?",
+    "answer": "It asks what question the sentence asks — i.e., the answer IS the question itself. This is self-referential: the sentence IS a question, and it asks about itself. There's no external fact to look up, no computation to perform. The sentence asks 'What question does this sentence ask?' and the answer is: it asks 'What question does this sentence ask?' The trap is that people search for a deeper meaning or hidden puzzle, when the answer is just the literal self-reference."
+  },
+  {
+    "id": 96,
+    "category": "20. Negation/exception logic",
+    "question": "A city's new zoning ordinance states: 'No residential property owner shall be prohibited from constructing an accessory dwelling unit (ADU) unless the lot is not in compliance with the minimum 5,000-square-foot lot size requirement, except that this restriction shall not apply to properties that are not outside the designated Urban Growth Boundary, provided that such properties have not failed to obtain approval from the Design Review Board.' My lot is 4,200 square feet (below the 5,000 sq ft minimum), located inside the Urban Growth Boundary, and has Design Review Board approval. My neighbor, a retired zoning attorney, reads the ordinance and says: 'With 5 negatives in that sentence, I think you CANNOT build — your lot is too small and the exceptions do not help you.' My architect, who deals with zoning daily, says: 'I read it the opposite way — I think the Urban Growth Boundary exception saves you.' Can I build the ADU?",
+    "answer": "Yes, you can build. Parsing layer by layer: (1) 'No owner shall be prohibited from constructing an ADU' = owners CAN build (double negative -> positive, base rule). (2) 'Unless the lot is not in compliance with the 5,000 sq ft requirement' = owners whose lots DO NOT meet 5,000 sq ft ARE prohibited. Your lot is 4,200 sq ft, so you would normally be prohibited. (3) 'Except that this restriction shall not apply to properties that are not outside the Urban Growth Boundary' = 'not outside' = inside. So if your property is inside the UGB, the lot-size restriction does NOT apply to you. You are inside the UGB, so the 5,000 sq ft requirement is waived. (4) 'Provided that such properties have not failed to obtain Design Review Board approval' = 'not failed to obtain' = successfully obtained. You have DRB approval. All conditions met: inside UGB + DRB approval = lot size restriction waived = you can build. The architect is correct; the retired attorney is wrong."
+  },
+  {
+    "id": 97,
+    "category": "20. Negation/exception logic",
+    "question": "A homeowners association bylaw reads: 'No homeowner's exterior modification request shall not be reviewed by the Architectural Committee unless the committee has not failed to convene a quorum within 30 days of submission, except that this exception shall not be inapplicable when the modification does not involve non-structural changes.' I submitted a request to repaint my front door (a non-structural, exterior modification) 45 days ago. The committee failed to convene a quorum within 30 days. My HOA president, who is also a practicing attorney, says: 'I count 7 negatives in that bylaw. After extensive analysis, I believe your request is DENIED because the committee never met to approve it — no meeting means no approval.' A fellow homeowner who studied formal logic in college says: 'With 7 negatives, an odd number, the net result is negative — so the answer is no.' Is either of them right?",
+    "answer": "Neither is right — your request IS considered reviewed (effectively approved by default). Parsing from the inside out: (a) 'non-structural changes' = your door repaint qualifies. (b) 'Does not involve non-structural changes' = it DOES involve non-structural changes, so this clause is FALSE for your situation. (c) 'This exception shall not be inapplicable' = the exception IS applicable (double negative). But since (b) is false, this whole 'except' clause does not activate for your case. Going back to the main clause: (d) 'The committee has not failed to convene a quorum within 30 days' = the committee DID fail, so this is FALSE. (e) 'Unless [d]' = since d is false... actually, let me reparse. 'No request shall not be reviewed' = all requests SHALL be reviewed (double negative). 'Unless the committee has not failed to convene' = unless the committee successfully convened. The committee DID NOT successfully convene (they failed to get quorum). So the 'unless' condition is not met, meaning the base rule stands: the request SHALL be reviewed. Since they failed to review it within the mandated period, most HOA frameworks treat this as automatic approval. The attorney's 'no meeting = no approval' logic and the neighbor's 'odd negatives = negative' shortcut are both wrong."
+  },
+  {
+    "id": 98,
+    "category": "20. Negation/exception logic",
+    "question": "A municipal parking regulation reads: 'Vehicles shall not be restricted from parking on designated city streets except during posted enforcement hours, unless the vehicle is not a non-commercial vehicle, provided that this provision does not fail to apply to streets that are not outside the Central Business District.' Today is Wednesday at 2 PM (within posted enforcement hours). My vehicle is a personal (non-commercial) car. I am parked on a street inside the Central Business District. A parking enforcement officer tickets me, saying: 'You cannot park here during enforcement hours.' My lawyer reads the regulation and says: 'You are fine — the Central Business District provision creates an exception that allows personal vehicles to park during enforcement hours.' Who is right?",
+    "answer": "The parking officer is right — you cannot park there. Parsing: (1) 'Vehicles shall not be restricted from parking' = vehicles CAN park (double negative, base rule). (2) 'Except during posted enforcement hours' = vehicles CANNOT park during enforcement hours. It is 2 PM during enforcement hours, so parking is restricted. (3) 'Unless the vehicle is not a non-commercial vehicle' = 'not a non-commercial vehicle' = IS a commercial vehicle. So commercial vehicles are exempt from the enforcement-hours restriction. Your car is personal/non-commercial, so this exemption does NOT apply to you. (4) 'Provided that this provision does not fail to apply to streets not outside the CBD' = 'does not fail to apply' = DOES apply; 'not outside the CBD' = inside the CBD. So this entire regulation applies to streets inside the CBD (where you are). Result: personal vehicle + enforcement hours + inside CBD = you cannot park. The lawyer confused the commercial-vehicle exemption with a general CBD exception. The officer is correct."
+  },
+  {
+    "id": 99,
+    "category": "20. Negation/exception logic",
+    "question": "A hospital's patient privacy policy states: 'Patient medical records shall not be undisclosed to authorized requesting parties unless the records do not pertain to non-psychiatric treatment, except that this exception shall not be inoperative for requests that are not from non-institutional sources, provided that the requesting party has not failed to submit a HIPAA-compliant authorization form.' A private insurance company (an institutional source) submits a HIPAA-compliant authorization form requesting a patient's psychiatric treatment records. The hospital's compliance officer says: 'Our policy with its layered negatives essentially means we disclose all records to authorized parties who submit proper paperwork — the psychiatric exception only blocks non-institutional requesters without forms. Since you are institutional with a valid form, we will release the psychiatric records.' The patient's lawyer says: 'Any policy with this many negatives is designed to RESTRICT disclosure of psychiatric records, not enable it. I am advising my client to object.' Who is right?",
+    "answer": "The compliance officer is correct — the records will be disclosed. Parsing: (1) 'Records shall not be undisclosed to authorized parties' = records SHALL be disclosed (double negative, base rule). (2) 'Unless the records do not pertain to non-psychiatric treatment' = 'do not pertain to non-psychiatric' = DO pertain to psychiatric treatment. So psychiatric records are excepted from automatic disclosure. (3) 'Except that this exception shall not be inoperative' = the exception IS operative (double negative)... but then: 'for requests that are not from non-institutional sources' = requests from institutional sources. So for institutional requesters, the psychiatric exception is operative — wait, the 'except' in step 3 creates an exception TO the exception in step 2. So for institutional sources, the psychiatric restriction (which blocks disclosure) is itself excepted — meaning disclosure proceeds. (4) 'Provided the requesting party has not failed to submit a HIPAA form' = has successfully submitted a form. The insurance company is institutional + has a valid form = psychiatric exception is overridden = records are disclosed. The compliance officer is right."
+  },
+  {
+    "id": 100,
+    "category": "20. Negation/exception logic",
+    "question": "A parking garage sign reads: 'Vehicles are not permitted to park on Level 3 unless they are not oversized, provided that electric vehicles are not excluded from the oversized restriction regardless of their size.' I drive a regular-sized electric SUV. Can I park on Level 3?",
+    "answer": "No. Unpacking: (1) Vehicles can't park on Level 3. (2) Unless they are 'not oversized' (i.e., regular-sized vehicles CAN park). (3) But electric vehicles 'are not excluded from the oversized restriction regardless of their size' — meaning EVs don't get the size-based exception. Regardless of actual size, electric vehicles are treated as if the oversized restriction applies to them. Your electric SUV, despite being regular-sized, cannot park on Level 3 because the EV clause removes the size exception for electric vehicles."
+  }
+]

@@ -1,0 +1,11 @@
+.env
+results/raw/
+__pycache__/
+*.pyc
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+.DS_Store
